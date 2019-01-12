@@ -58,6 +58,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\FirstStartup\FirstStartupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FirstStartup\PathChooserPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FirstStartup\WelcomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -65,6 +77,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\TriggerConverter.cs" />
+    <Compile Include="Interactivity\IInteractionBase.cs" />
+    <Compile Include="Interactivity\IInteractionProvider.cs" />
+    <Compile Include="NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="Views\FirstStartup\FirstStartupWindow.xaml.cs">
+      <DependentUpon>FirstStartupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FirstStartup\PathChooserPage.xaml.cs">
+      <DependentUpon>PathChooserPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions\RelativeToAbsoluteExtensions.cs" />
+    <Compile Include="Views\FirstStartup\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -97,6 +123,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

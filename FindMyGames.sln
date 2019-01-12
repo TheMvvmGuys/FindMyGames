@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyGames", "FindMyGames\FindMyGames.csproj", "{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMetadata.Net", "GameMetadata.NET\GameMetadata.Net.csproj", "{36B6FA69-B18C-4503-8D70-56812B4FC4F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMetadata.Net", "GameMetadata.NET\GameMetadata.Net.csproj", "{36B6FA69-B18C-4503-8D70-56812B4FC4F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiWrappers", "ApiWrappers", "{EDDCB4A1-F990-4611-86A0-B93357C2E21B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMetadata.Net.Tests", "GameMetadata.Net.Tests\GameMetadata.Net.Tests.csproj", "{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMetadata.Net.Tests", "GameMetadata.Net.Tests\GameMetadata.Net.Tests.csproj", "{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTracker", "GameTracker\GameTracker.csproj", "{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

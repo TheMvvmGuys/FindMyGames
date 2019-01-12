@@ -11,5 +11,7 @@ namespace GameMetadata.Net
         public Uri GridUrl => ImageResults.First().GridLink;
 
         public IEnumerable<GameImage> ImageResults { get; set; }
+
+        public string Description { get; set; }
     }
 }

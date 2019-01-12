@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace GameMetadata.Net
 {
@@ -14,18 +15,19 @@ namespace GameMetadata.Net
         public async Task<SearchedGame> GetGameMetadata(string query)
         {
             IEnumerable<GameImage> images = await GetAllGameImages(query);
+            //metadata part here
             return new SearchedGame();
         }
 
         private static async Task<IEnumerable<GameImage>> GetAllGameImages(string query)
         {
-            var result = await GetGameImages(query, 0);
+            IEnumerable<GameImage> images = await GetGameImages(query, 0);
 
-            GameImage[] images = result.Images;
-            if (images.Length <= 12)
+            if (images.Count() <= 12)
             {
                 return images;
             }
+
             await AddOtherPages(query, images.ToList());
 
             return images;
@@ -39,19 +41,21 @@ namespace GameMetadata.Net
             {
                 previousSize = previousImages.Count;
 
-                GameImageSearchResult result = await GetGameImages(query, index);
-                previousImages.AddRange(result.Images);
+                previousImages.AddRange(await GetGameImages(query, index));
 
                 index++;
             }
             while (previousImages.Count != previousSize);
         }
 
-        private static async Task<GameImageSearchResult> GetGameImages(string query, int page)
+        private static async Task<IEnumerable<GameImage>> GetGameImages(string query, int page)
         {
             string json = await new HttpClient().GetStringAsync(BuildUri(query, page));
-            GameImageSearchResult result = JsonConvert.DeserializeObject<GameImageSearchResult>(json);
-            return result;
+            //Because it has in the array extra 3 objects
+            object[] objectArray = JsonConvert.DeserializeObject<object[]>(json);
+
+            return objectArray.Skip(3)
+               .Select(o => JsonConvert.DeserializeObject<GameImage>(o.ToString()));
         }
 
         private static Uri BuildUri(string query, int page)
@@ -63,7 +67,7 @@ namespace GameMetadata.Net
             };
 
             var queryBuilder = new StringBuilder();
-            int index = 0;
+            var index = 0;
             foreach (KeyValuePair<string, string> pair in parameters)
             {
                 var format = "{0}={1}&";
@@ -71,6 +75,7 @@ namespace GameMetadata.Net
                 {
                     format = format.TrimEnd('&');
                 }
+
                 queryBuilder.AppendFormat(CultureInfo.InvariantCulture, format, pair.Key, pair.Value.Replace(" ", "+"));
             }
 

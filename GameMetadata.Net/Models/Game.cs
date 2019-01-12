@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace GameMetadata.Net
 {
-    internal class Game
+    public class Game
     {
         public string Name { get; set; }
 

@@ -8,6 +8,14 @@ namespace GameMetadata.Net.Tests
     [TestCategory("JSON Serialization tests")]
     public class SerializationUnitTests
     {
+        public static readonly JsonSerializerSettings MissingMemberSettings = new JsonSerializerSettings
+        {
+            MissingMemberHandling = MissingMemberHandling.Error,
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new SnakeCaseNamingStrategy()
+            }
+        };
         [TestMethod]
         public void Serialization_GameMetadata_AllMembersFound()
         {
@@ -25,15 +33,7 @@ namespace GameMetadata.Net.Tests
     ""grid_link"": ""https://s3.amazonaws.com/steamgriddb/grid/af87f7cdcda223c41c3f3ef05a3aaeea.png"",
     ""thumbnail_link"": ""https://s3.amazonaws.com/steamgriddb/thumb/af87f7cdcda223c41c3f3ef05a3aaeea.png""
   }";
-            var settings = new JsonSerializerSettings
-            {
-                MissingMemberHandling = MissingMemberHandling.Error,
-                ContractResolver = new DefaultContractResolver
-                {
-                    NamingStrategy = new SnakeCaseNamingStrategy()
-                }
-            };
-            var deserialized = JsonConvert.DeserializeObject<GameImage>(json, settings);
+            var deserialized = JsonConvert.DeserializeObject<GameImage>(json, MissingMemberSettings);
             Assert.IsNotNull(deserialized);
             Assert.IsFalse(deserialized.GridStyle == GridStyle.None);
         }

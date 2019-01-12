@@ -7,11 +7,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace GameMetadata.Net
 {
     public class MetadataClient
     {
+        private static readonly JsonSerializerSettings DefaultSettings = new JsonSerializerSettings
+        {
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new SnakeCaseNamingStrategy()
+            }
+        };
+
+        protected static T DeserializeObject<T>(string json) =>
+            JsonConvert.DeserializeObject<T>(json, DefaultSettings);
         public async Task<SearchedGame> GetGameMetadataAsync(string query)
         {
             var images = await GetAllGameImagesAsync(query);
@@ -56,13 +67,13 @@ namespace GameMetadata.Net
         {
             string json = await new HttpClient().GetStringAsync(BuildUri(query, page));
             //Because it has in the array extra 3 objects
-            object[] objectArray = JsonConvert.DeserializeObject<object[]>(json);
+            object[] objectArray = DeserializeObject<object[]>(json);
             if (objectArray.Length <= 3 && objectArray[0] as string == "None")
             {
                 throw new GameDataNotFoundException(query);
             }
             return objectArray.Skip(3)
-               .Select(o => JsonConvert.DeserializeObject<GameImage>(o.ToString()));
+               .Select(o => DeserializeObject<GameImage>(o.ToString()));
         }
 
         private static Uri BuildUri(string query, int page)

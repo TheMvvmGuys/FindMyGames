@@ -8,7 +8,7 @@ namespace GameMetadata.Net.Tests
         [TestMethod]
         public void Test()
         {
-            SearchedGame result = new MetadataClient().GetGameMetadata("Battlefield 1")
+            SearchedGame result = new MetadataClient().GetGameMetadataAsync("Battlefield 1")
                .Result;
             Assert.IsTrue(true);
         }

@@ -11,10 +11,10 @@ namespace GameMetadata.Net
 {
     public class MetadataClient
     {
-        public async Task<Game> GetGameMetadata(string query)
+        public async Task<SearchedGame> GetGameMetadata(string query)
         {
             IEnumerable<GameImage> images = await GetAllGameImages(query);
-            return new Game();
+            return new SearchedGame();
         }
 
         private static async Task<IEnumerable<GameImage>> GetAllGameImages(string query)

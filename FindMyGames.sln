@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyGames", "FindMyGames\FindMyGames.csproj", "{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMetadata.Net", "GameMetadata.NET\GameMetadata.Net.csproj", "{36B6FA69-B18C-4503-8D70-56812B4FC4F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiWrappers", "ApiWrappers", "{EDDCB4A1-F990-4611-86A0-B93357C2E21B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameMetadata.Net.Tests", "GameMetadata.Net.Tests\GameMetadata.Net.Tests.csproj", "{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +21,21 @@ Global
 		{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36B6FA69-B18C-4503-8D70-56812B4FC4F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36B6FA69-B18C-4503-8D70-56812B4FC4F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36B6FA69-B18C-4503-8D70-56812B4FC4F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36B6FA69-B18C-4503-8D70-56812B4FC4F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36B6FA69-B18C-4503-8D70-56812B4FC4F7} = {EDDCB4A1-F990-4611-86A0-B93357C2E21B}
+		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C} = {EDDCB4A1-F990-4611-86A0-B93357C2E21B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD75B0DA-52B0-41DB-ADFC-AC3008E590CA}

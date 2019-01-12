@@ -16,7 +16,11 @@ namespace GameMetadata.Net
         {
             IEnumerable<GameImage> images = await GetAllGameImages(query);
             //metadata part here
-            return new SearchedGame();
+            return new SearchedGame
+            {
+                Name = query,
+                ImageResults = images
+            };
         }
 
         private static async Task<IEnumerable<GameImage>> GetAllGameImages(string query)

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -36,6 +35,7 @@ namespace GameMetadata.Net.Tests
             };
             var deserialized = JsonConvert.DeserializeObject<GameImage>(json, settings);
             Assert.IsNotNull(deserialized);
+            Assert.IsFalse(deserialized.GridStyle == GridStyle.None);
         }
     }
 }

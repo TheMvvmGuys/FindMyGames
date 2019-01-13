@@ -1,10 +1,15 @@
-﻿namespace GameMetadata.Net
+﻿using Newtonsoft.Json;
+
+namespace GameMetadata.Net
 {
     public enum GridStyle
     {
+        None,
         Alternate,
         Blurred,
-        NoLogoTextless,
+        [JsonProperty("no_logo")]
+        NoLogoTextLess,
+        [JsonProperty("material")]
         MaterialMinimal
     }
 }

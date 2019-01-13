@@ -53,7 +53,7 @@ namespace GameMetadata.Net
         private static async Task AddOtherPagesAsync(string query, List<GameImage> previousImages)
         {
             var index = 0;
-            var previousSize = 0;
+            int previousSize;
             do
             {
                 previousSize = previousImages.Count;

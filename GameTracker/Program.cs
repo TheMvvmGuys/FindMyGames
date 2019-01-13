@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,9 +40,10 @@ namespace GameTracker
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e);
+                        if (!(e is UnauthorizedAccessException))
+                            Console.WriteLine(e);
                     }
-                    
+
                 });
             return result;
         }

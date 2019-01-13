@@ -13,6 +13,11 @@ namespace GameMetadata.Net
             Type objectType,
             bool existingValue,
             bool hasExistingValue,
-            JsonSerializer serializer) => ((string) reader.Value).Equals("didntvote", StringComparison.OrdinalIgnoreCase); // woah this api is weird
+            JsonSerializer serializer)
+        {
+            var jsonValue = ((string) reader.Value);
+            //didntvote = false, else = true
+            return jsonValue.Equals("didntvote", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

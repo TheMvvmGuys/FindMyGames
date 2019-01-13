@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameMetadata.Net.Tests", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTracker", "GameTracker\GameTracker.csproj", "{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External DLLs", "External DLLs", "{79F76F1E-DBCB-4C9F-A207-C33E60B36602}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDLLs", "ExternalDLLs", "{79F76F1E-DBCB-4C9F-A207-C33E60B36602}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

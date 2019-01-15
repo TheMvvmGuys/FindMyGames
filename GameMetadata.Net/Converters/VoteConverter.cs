@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace GameMetadata.Net
+namespace TheMvvmGuys.GameMetadata.Net
 {
     internal class VoteConverter : JsonConverter<bool>
     {

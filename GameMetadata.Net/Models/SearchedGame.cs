@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GameMetadata.Net
+namespace TheMvvmGuys.GameMetadata.Net
 {
     public class SearchedGame
     {

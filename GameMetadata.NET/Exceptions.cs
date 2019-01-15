@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameMetadata.Net
+namespace TheMvvmGuys.GameMetadata.Net
 {
     public abstract class GameMetadataException : Exception
     {

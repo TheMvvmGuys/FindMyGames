@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace GameTracker
 {
-    public class GameTracker
+    internal class GameTracker
     {
         private readonly IList<GameFolder> _appropriateGameFolders = new List<GameFolder>();
 
         public IEnumerable<GameFolder> TrackGamesAllDrives()
         {
             //this will move
-            string wantedPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            string wantedPath = Path.GetDirectoryName(Path.GetDirectoryName(System.IO.Directory.GetCurrentDirectory()));
             IEnumerable<string> gameFoldersDatabase = File.ReadLines($"{wantedPath}\\db.txt");
             foreach (string folderPath in gameFoldersDatabase)
             {

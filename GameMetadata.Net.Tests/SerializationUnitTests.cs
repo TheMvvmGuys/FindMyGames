@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using TheMvvmGuys.GameMetadata.Net;
 
 namespace GameMetadata.Net.Tests
 {

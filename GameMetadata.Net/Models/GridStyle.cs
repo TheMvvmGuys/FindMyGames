@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GameMetadata.Net
+namespace TheMvvmGuys.GameMetadata.Net
 {
     public enum GridStyle
     {

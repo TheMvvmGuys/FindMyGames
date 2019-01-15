@@ -21,8 +21,19 @@
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                 <DockPanel>
                     <Grid DockPanel.Dock="Bottom" Height="36">
-                        <Menu x:Name="NavMenu" Visibility="Collapsed"/>
-                        <StackPanel HorizontalAlignment="Right" Margin="5 0" Orientation="Horizontal" VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <DockPanel Margin="5 1">
+                            <DockPanel DockPanel.Dock="Top">
+                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis"/>
+                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold"/>
+                            </DockPanel>
+                            <ProgressBar Value="10" Margin="0 5"/>
+                        </DockPanel>
+                        <Menu x:Name="NavMenu" Visibility="Collapsed"/> <!-- Menu to make the control not cry (crash) -->
+                        <StackPanel HorizontalAlignment="Right" Margin="5 0" Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1">
                             <Button Content="Back" Padding="0 2" Width="80" Command="BrowseBack" IsEnabled="{TemplateBinding CanGoBack}"/>
                             <Button Content="Next" Padding="0 2" Margin="10 0" Width="80" 
                                     CommandParameter="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">

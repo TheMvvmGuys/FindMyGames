@@ -20,15 +20,15 @@
         <ControlTemplate x:Key="FrameControlTemplate" TargetType="{x:Type Frame}">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                 <DockPanel>
-                    <Grid DockPanel.Dock="Bottom" Height="36">
+                    <Grid DockPanel.Dock="Bottom" Height="36" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <DockPanel Margin="5 1">
                             <DockPanel DockPanel.Dock="Top">
-                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis"/>
-                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold"/>
+                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis" Foreground="{StaticResource WindowForegroundColor}"/>
+                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{StaticResource WindowForegroundColor}"/>
                             </DockPanel>
                             <ProgressBar Value="10" Margin="0 5"/>
                         </DockPanel>

@@ -2,7 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames"
                     >
-    <Style TargetType="TextBlock" x:Key="HeaderText">
+    <Style TargetType="TextBlock" x:Key="ForegroundColorControlStyle">
+        <Setter Property="Foreground" Value="{StaticResource WindowForegroundColor}"/>
+    </Style>
+
+    <Style TargetType="Control" x:Key="ColoredControlStyle">
+        <Setter Property="Background" Value="{StaticResource WindowBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource WindowForegroundColor}"/>
+    </Style>
+
+    <Style TargetType="Window" BasedOn="{StaticResource ColoredControlStyle}"/>
+    <Style TargetType="Frame" BasedOn="{StaticResource ColoredControlStyle}"/>
+    <Style TargetType="Page">
+        <Setter Property="Foreground" Value="{StaticResource WindowForegroundColor}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="HeaderText" BasedOn="{StaticResource ForegroundColorControlStyle}">
         <Setter Property="FontSize" Value="34"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -13,5 +28,6 @@
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
+
     <Thickness Bottom="15" Top="15" Left="25" Right="25" x:Key="FirstStartupPageMargin"/>
 </ResourceDictionary>

@@ -13,9 +13,9 @@
             <RowDefinition Height="6*"/>
             <RowDefinition Height="3*" MinHeight="125"/>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" Style="{StaticResource HeaderText}"
+        <TextBlock VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}"
                    HorizontalAlignment="Center" Margin="5">Welcome to FindMyGames!</TextBlock>
-        <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="22" Margin="25 10" TextWrapping="Wrap" Style="{StaticResource SubtitleText}" TextTrimming="WordEllipsis">
+        <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="22" Margin="25 10" TextWrapping="Wrap" Style="{StaticResource SubtitleTextStyle}" TextTrimming="WordEllipsis">
             FindMyGames is an easy way to list all your games and launching them in one click. <LineBreak/>
             We will be asking a bit of help from you, if you have any clues of the location of your games, we would be happy to know them! 
             It will make things faster!

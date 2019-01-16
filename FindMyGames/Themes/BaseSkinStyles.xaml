@@ -3,27 +3,27 @@
                     xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames"
                     xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.Controls">
     <Style TargetType="{x:Type TextBlock}" x:Key="ForegroundColorControlStyle">
-        <Setter Property="Foreground" Value="{StaticResource WindowForegroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
     </Style>
 
     <Style TargetType="{x:Type Control}" x:Key="ColoredContainerStyle">
-        <Setter Property="Background" Value="{StaticResource WindowBackgroundColor}"/>
-        <Setter Property="Foreground" Value="{StaticResource WindowForegroundColor}"/>
+        <Setter Property="Background" Value="{DynamicResource WindowBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
     </Style>
     <Style TargetType="{x:Type Window}" BasedOn="{StaticResource ColoredContainerStyle}"/>
     <Style TargetType="{x:Type Frame}" BasedOn="{StaticResource ColoredContainerStyle}"/>
     <Style TargetType="{x:Type Page}">
-        <Setter Property="Foreground" Value="{StaticResource WindowForegroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
     </Style>
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ForegroundColorControlStyle}"/>
-    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderText" BasedOn="{StaticResource ForegroundColorControlStyle}">
+    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderTextStyle" BasedOn="{StaticResource ForegroundColorControlStyle}">
         <Setter Property="FontSize" Value="34"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="TextAlignment" Value="Center"/>
     </Style>
-    <Style TargetType="{x:Type TextBlock}" x:Key="SubtitleText" BasedOn="{StaticResource HeaderText}">
+    <Style TargetType="{x:Type TextBlock}" x:Key="SubtitleTextStyle" BasedOn="{StaticResource HeaderTextStyle}">
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>

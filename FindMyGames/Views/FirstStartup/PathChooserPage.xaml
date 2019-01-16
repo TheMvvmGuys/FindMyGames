@@ -24,13 +24,8 @@
             </Grid.RowDefinitions>
             <ListBox DockPanel.Dock="Top"/> <!-- TODO: The thing -->
             <UniformGrid Grid.Row="1" Margin="-5 2">
-                <UniformGrid.Resources>
-                    <Style TargetType="Button">
-                        <Setter Property="Margin" Value="5 0"/>
-                    </Style>
-                </UniformGrid.Resources>
-                <Button Content="Add folder..."/>
-                <Button Content="Delete selected folder"/>
+                <Button Content="Add folder..." Margin="5 0"/>
+                <Button Content="Delete selected folder" Margin="5 0"/>
             </UniformGrid>
         </Grid>
     </Grid>

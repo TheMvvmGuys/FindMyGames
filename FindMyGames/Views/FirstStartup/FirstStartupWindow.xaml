@@ -1,4 +1,4 @@
-﻿<Window
+﻿<controls:ThemedWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,6 +7,7 @@
         xmlns:converters="clr-namespace:TheMvvmGuys.FindMyGames.Converters"
         xmlns:system="clr-namespace:System;assembly=System"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.Controls"
         x:Class="TheMvvmGuys.FindMyGames.Views.FirstStartup.FirstStartupWindow"
         mc:Ignorable="d" x:Name="Window"
         Title="FirstStartupWindow" Height="450" Width="800">
@@ -61,4 +62,4 @@
         </ControlTemplate>
     </Window.Resources>
     <Frame Source="{Binding [0], Source={StaticResource PageUris}}" Template="{DynamicResource FrameControlTemplate}" x:Name="Frame"/>
-</Window>
+</controls:ThemedWindow>

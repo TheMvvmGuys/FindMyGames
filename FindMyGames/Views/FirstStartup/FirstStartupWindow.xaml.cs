@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using TheMvvmGuys.FindMyGames.Controls;
 using TheMvvmGuys.FindMyGames.Extensions;
 
 namespace TheMvvmGuys.FindMyGames.Views.FirstStartup
@@ -10,7 +11,7 @@ namespace TheMvvmGuys.FindMyGames.Views.FirstStartup
     /// <summary>
     /// Logique d'interaction pour FirstStartupWindow.xaml
     /// </summary>
-    public partial class FirstStartupWindow : Window
+    public partial class FirstStartupWindow : ThemedWindow
     {
         public FirstStartupWindow()
         {

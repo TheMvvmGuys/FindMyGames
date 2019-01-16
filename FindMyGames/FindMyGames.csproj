@@ -35,8 +35,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.4.0.0-alpha0222\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
     <Reference Include="Jeuxjeux20.Mvvm, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jeuxjeux20.Mvvm.1.0.1\lib\net452\Jeuxjeux20.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.0.1\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,6 +67,10 @@
     <Page Include="Themes\BaseSkinStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\LightThemeColors.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -90,7 +100,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\ThemedWindow.cs" />
     <Compile Include="Converters\TriggerConverter.cs" />
+    <Compile Include="Interaction.cs" />
     <Compile Include="Interactivity\IInteractionBase.cs" />
     <Compile Include="Interactivity\IInteractionProvider.cs" />
     <Compile Include="NavigationPageAggregatorCommmand.cs" />

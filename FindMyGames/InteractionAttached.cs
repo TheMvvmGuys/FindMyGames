@@ -5,10 +5,10 @@ using Microsoft.Xaml.Behaviors;
 
 namespace TheMvvmGuys.FindMyGames
 {
-    public static class Interaction
+    public static class InteractionAttached
     {
         public static readonly DependencyProperty BehaviorsProperty = DependencyProperty.RegisterAttached(
-            "Behaviors", typeof(IEnumerable<Behavior>), typeof(Interaction), new FrameworkPropertyMetadata(default(IEnumerable<Behavior>), new PropertyChangedCallback(ChangeTarget)), ValidateValueCallback);
+            "Behaviors", typeof(IEnumerable<Behavior>), typeof(InteractionAttached), new FrameworkPropertyMetadata(default(IEnumerable<Behavior>), new PropertyChangedCallback(ChangeTarget)), ValidateValueCallback);
 
         private static bool ValidateValueCallback(object value) => value is null || value is IEnumerable<Behavior>;
         private static void ChangeTarget(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -16,7 +16,7 @@ namespace TheMvvmGuys.FindMyGames
             var b = Microsoft.Xaml.Behaviors.Interaction.GetBehaviors(d);
             b.Clear();
             if (e.NewValue is null) return;
-            foreach (var behavior in (IEnumerable<Behavior>) e.NewValue)
+            foreach (var behavior in (IEnumerable<Behavior>)e.NewValue)
             {
                 b.Add(behavior);
             }

@@ -102,7 +102,7 @@
     </Compile>
     <Compile Include="Controls\ThemedWindow.cs" />
     <Compile Include="Converters\TriggerConverter.cs" />
-    <Compile Include="Interaction.cs" />
+    <Compile Include="InteractionAttached.cs" />
     <Compile Include="Interactivity\IInteractionBase.cs" />
     <Compile Include="Interactivity\IInteractionProvider.cs" />
     <Compile Include="NavigationPageAggregatorCommmand.cs" />

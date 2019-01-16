@@ -61,5 +61,5 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Frame Source="{Binding [0], Source={StaticResource PageUris}}" Template="{DynamicResource FrameControlTemplate}" x:Name="Frame"/>
+    <Frame Source="{Binding [0], Source={StaticResource PageUris}}" Template="{DynamicResource FrameControlTemplate}" x:Name="Frame" FocusVisualStyle="{x:Null}"/>
 </controls:ThemedWindow>

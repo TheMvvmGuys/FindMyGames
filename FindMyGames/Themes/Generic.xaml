@@ -10,7 +10,8 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
-        <Setter Property="Margin" Value="1 0"></Setter>
+        <Setter Property="Margin" Value="1 0"/>
+        <Setter Property="Padding" Value="2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ButtonBase}">
@@ -47,11 +48,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:ThemedWindow}">
-                    <Border BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{TemplateBinding BorderBrush}" 
-                            Background="{TemplateBinding Background}">
-                        <Grid>
-                            <Grid>
+                    <Grid>
+                        <AdornerDecorator x:Name="Adorner">
+                            <Grid Background="{TemplateBinding Background}">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="20"/>
                                     <RowDefinition />
@@ -76,20 +75,19 @@
                                     <Button x:Name="PART_CloseButton"
                                             Content="r" />
                                 </StackPanel>
-                                <Grid Background="{TemplateBinding Background}" Grid.Column="0"
-                                           Grid.Row="1" Grid.ColumnSpan="2" Margin="3">
-                                    <AdornerDecorator>
-                                        <ContentPresenter/>
-                                    </AdornerDecorator>
-                                </Grid>
+                                <ContentPresenter Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2"/>
                             </Grid>
-                            <ResizeGrip x:Name="WindowResizeGrip"
+                        </AdornerDecorator>
+                        <ResizeGrip x:Name="WindowResizeGrip"
                                         HorizontalAlignment="Right"
                                         VerticalAlignment="Bottom"
                                         Visibility="Collapsed"
                                         IsTabStop="false"/>
-                        </Grid>
-                    </Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                Background="{x:Null}"
+                                HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="ResizeMode"
                                  Value="CanResizeWithGrip">
@@ -99,19 +97,6 @@
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="local:Interaction.Behaviors">
-            <Setter.Value>
-                <x:Array Type="behaviors:Behavior">
-                    <ctrlex:WindowChromeBehavior IgnoreTaskbarOnMaximize="False" 
-                                                 ResizeBorderThickness="5"
-                                                 KeepBorderOnMaximize="True"/>
-                    <ctrlex:GlowWindowBehavior GlowBrush="LightBlue"
-                                               NonActiveGlowBrush="AliceBlue"
-                                               ResizeBorderThickness="5"
-                    />
-                </x:Array>
             </Setter.Value>
         </Setter>
         <Setter Property="WindowStyle" Value="None"/>

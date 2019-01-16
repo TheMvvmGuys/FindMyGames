@@ -14,6 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ControlzEx.Behaviors;
+using ControlzEx.Controls;
+using Microsoft.Xaml.Behaviors;
 
 namespace TheMvvmGuys.FindMyGames.Controls
 {
@@ -26,6 +29,18 @@ namespace TheMvvmGuys.FindMyGames.Controls
         static ThemedWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ThemedWindow), new FrameworkPropertyMetadata(typeof(ThemedWindow)));
+        }
+
+        public ThemedWindow()
+        {
+            InitializeWindowChromeBehaviors();
+            Loaded += OnLoaded;
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= OnLoaded;
+            InitializeGlowWindowBehavior();
         }
 
         public override void OnApplyTemplate()
@@ -70,6 +85,30 @@ namespace TheMvvmGuys.FindMyGames.Controls
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
+        }
+        private void InitializeWindowChromeBehaviors()
+        {
+            {
+                var windowChrome = new WindowChromeBehavior
+                {
+                    IgnoreTaskbarOnMaximize = false,
+                    ResizeBorderThickness = new Thickness(5),
+                    KeepBorderOnMaximize = true,                  
+                };
+                Interaction.GetBehaviors(this).Add(windowChrome);
+            }          
+            // TODO: Bindings and dps
+        }
+
+        private void InitializeGlowWindowBehavior()
+        {
+            var glow = new GlowWindowBehavior
+            {
+                GlowBrush = Brushes.DodgerBlue,
+                NonActiveGlowBrush = Brushes.CadetBlue,
+                ResizeBorderThickness = new Thickness(5)
+            };
+            Interaction.GetBehaviors(this).Add(glow);
         }
     }
 }

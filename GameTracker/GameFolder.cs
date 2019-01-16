@@ -2,16 +2,16 @@
 using System.IO;
 using System.Linq;
 
-namespace GameTracker
+namespace TheMvvmGuys.GameTracker
 {
     public class GameFolder
     {
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
-        ///     The full name with all of the parents we know about (if any)
+        /// The full name with all of the parents we know about (if any)
         /// </summary>
-        public string FullKnownName { private get; set; }
+        private string FullKnownName { get; }
 
         private IEnumerable<string> Parents => FullKnownName
            .Split('/')

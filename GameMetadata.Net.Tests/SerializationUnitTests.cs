@@ -1,9 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using TheMvvmGuys.GameMetadata.Net;
 
-namespace GameMetadata.Net.Tests
+namespace TheMvvmGuys.GameMetadata.Net.Tests
 {
     [TestClass]
     [TestCategory("JSON Serialization tests")]

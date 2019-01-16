@@ -3,56 +3,94 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace GameTracker
+namespace TheMvvmGuys.GameTracker
 {
     public class GameTracker
     {
-        private readonly IList<GameFolder> _appropriateGameFolders = new List<GameFolder>();
+        private const int MaximumTasks = 400;
 
-        public IEnumerable<GameFolder> TrackGamesAllDrives()
+        private readonly IList<GameFolder> _requiredGameFolders = new List<GameFolder>();
+        private readonly ConcurrentBag<GameFolder> _gameFolders = new ConcurrentBag<GameFolder>();
+
+        private CancellationToken _token;
+
+        public Task<IEnumerable<GameFolder>> TrackGameFoldersAsync(CancellationToken token = default(CancellationToken))
         {
-            //this will move
-            string wantedPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-            IEnumerable<string> gameFoldersDatabase = File.ReadLines($"{wantedPath}\\db.txt");
-            foreach (string folderPath in gameFoldersDatabase)
+            try
             {
-                _appropriateGameFolders.Add(new GameFolder(folderPath));
-            }
-            List<GameFolder> gameFolders = new List<GameFolder>();
+                _token = token;
 
-            DriveInfo.GetDrives()
-               .AsParallel()
+                return Task.FromResult(TrackAllDrives());
+            }
+            catch (Exception)
+            {
+                //ignored
+            }
+            //Default result
+            return Task.FromResult(Enumerable.Empty<GameFolder>());
+        }
+
+        private IEnumerable<GameFolder> TrackAllDrives()
+        {
+            ReadFromDb();
+
+            GetParallelQuery(DriveInfo.GetDrives())
                .ForAll(
                     drive =>
                     {
-                        IEnumerable<GameFolder> driveGameFolders = EnumerateDirectoryChildren(drive.RootDirectory);
-                        gameFolders.AddRange(driveGameFolders);
+                        try
+                        {
+                            EnumerateDirectoryChildren(drive.RootDirectory);
+                        }
+                        catch (OperationCanceledException)
+                        {
+                            //ignored
+                        }
                     });
 
-            return gameFolders;
+            return _gameFolders;
         }
 
-        private IEnumerable<GameFolder> EnumerateDirectoryChildren(DirectoryInfo di)
+        //TODO: use an actual DB / JSON, serialize it on app startup if it doesn't exist and stick it in appdata
+        private void ReadFromDb()
         {
-            ConcurrentBag<GameFolder> gameFolders = new ConcurrentBag<GameFolder>();
-            Parallel.ForEach(
-                di.EnumerateDirectories(),
-                (folder =>
-                {
-                    if (CheckDirectory(folder))
+            //string wantedPath = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            //IEnumerable<string> gameFoldersDatabase = File.ReadLines($@"..\..\{wantedPath}\db.txt");
+            IEnumerable<string> gameFoldersDatabase = new List<string>
+            {
+                "steamapps/common"
+            };
+
+            foreach (string folderPath in gameFoldersDatabase)
+            {
+                _requiredGameFolders.Add(new GameFolder(folderPath));
+            }
+        }
+
+        private ParallelQuery<T> GetParallelQuery<T>(IEnumerable<T> enumerable) => enumerable.AsParallel()
+           .WithCancellation(_token)
+           .WithDegreeOfParallelism(MaximumTasks);
+
+        private void EnumerateDirectoryChildren(DirectoryInfo directory)
+        {
+            GetParallelQuery(directory.EnumerateDirectories())
+               .ForAll(
+                    dir =>
                     {
-                        gameFolders.Add(new GameFolder(folder.FullName));
-                    }
-                }));
-            return gameFolders;
+                        if (CheckDirectory(dir))
+                        {
+                            _gameFolders.Add(new GameFolder(dir.FullName));
+                        }
+                    });
         }
 
         private bool CheckDirectory(DirectoryInfo directory)
         {
-            if (_appropriateGameFolders.Any(folder => folder.Name == directory.Name &&
-                                           folder.IsDirectoryInfoParentEqual(directory)))
+            if (_requiredGameFolders.Any(
+                folder => folder.Name == directory.Name && folder.IsDirectoryInfoParentEqual(directory)))
             {
                 return true;
             }
@@ -65,9 +103,8 @@ namespace GameTracker
                     EnumerateDirectoryChildren(directory);
                 }
             }
-            catch (Exception)
+            catch (UnauthorizedAccessException e)
             {
-                // ignored
             }
 
             return false;

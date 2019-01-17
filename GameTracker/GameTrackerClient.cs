@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TheMvvmGuys.GameTracker
 {
-    public class GameTracker
+    public class GameTrackerClient
     {
         private const int MaximumTasks = 512;
 

@@ -10,10 +10,10 @@ namespace TheMvvmGuys.GameTracker.Tests
     public class FolderTrackingUnitTests
     {
         [TestMethod]
-        public async Task Test1()
+        public async Task Test_10SecondTrack()
         {
             var cts = new CancellationTokenSource();
-            var gameTracker = new GameTracker();
+            var gameTracker = new GameTrackerClient();
             var actualFolders = new List<GameFolder>();
             gameTracker.GameFolderFound += (sender, e) => actualFolders.Add(e.Folder);
             cts.CancelAfter(10000);

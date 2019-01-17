@@ -25,7 +25,7 @@ namespace TheMvvmGuys.GameTracker
             FullKnownName = folderPath;
         }
 
-        public bool IsDirectoryInfoParentEqual(DirectoryInfo directory)
+        public bool IsDirectoryParentEqual(DirectoryInfo directory)
         {
             var index = 0;
             DirectoryInfo currentDirectory = directory;
@@ -36,7 +36,7 @@ namespace TheMvvmGuys.GameTracker
                 index++;
             }
 
-            return index > 0;
+            return index > 0 && index >= Parents.Count();
         }
 
         private bool GetParentsEquality(DirectoryInfo d)

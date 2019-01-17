@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -14,9 +13,13 @@ namespace TheMvvmGuys.GameTracker.Tests
         public async Task Test1()
         {
             var cts = new CancellationTokenSource();
-            cts.CancelAfter(TimeSpan.FromMilliseconds(10000));
-            var folders = await new GameTracker().TrackGameFoldersAsync(cts.Token);
-            Assert.IsFalse(folders.Any());
+            var gameTracker = new GameTracker();
+            var actualFolders = new List<GameFolder>();
+            gameTracker.GameFolderFound += (sender, e) => actualFolders.Add(e.Folder);
+            cts.CancelAfter(10000);
+            IEnumerable<GameFolder> folders = await gameTracker.TrackGameFoldersAsync(cts.Token);
+            
+            Assert.IsTrue(folders.Any());
         }
     }
 }

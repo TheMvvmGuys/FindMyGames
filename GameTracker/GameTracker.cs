@@ -10,27 +10,30 @@ namespace TheMvvmGuys.GameTracker
 {
     public class GameTracker
     {
-        private const int MaximumTasks = 400;
+        private const int MaximumTasks = 512;
 
         private readonly IList<GameFolder> _requiredGameFolders = new List<GameFolder>();
         private readonly ConcurrentBag<GameFolder> _gameFolders = new ConcurrentBag<GameFolder>();
 
         private CancellationToken _token;
 
-        public Task<IEnumerable<GameFolder>> TrackGameFoldersAsync(CancellationToken token = default(CancellationToken))
+        public event EventHandler<GameFolderEventArgs> GameFolderFound;
+
+        protected virtual void OnGameFolderFound(GameFolder folder) 
+            => GameFolderFound?.Invoke(this, new GameFolderEventArgs(folder));
+
+        public async Task<IEnumerable<GameFolder>> TrackGameFoldersAsync(CancellationToken token = default(CancellationToken))
         {
+            _token = token;
+
             try
             {
-                _token = token;
-
-                return Task.FromResult(TrackAllDrives());
+                return await Task.Run(() => TrackAllDrives(), token);
             }
-            catch (Exception)
+            catch (OperationCanceledException )
             {
-                //ignored
+                return _gameFolders;
             }
-            //Default result
-            return Task.FromResult(Enumerable.Empty<GameFolder>());
         }
 
         private IEnumerable<GameFolder> TrackAllDrives()
@@ -45,12 +48,11 @@ namespace TheMvvmGuys.GameTracker
                         {
                             EnumerateDirectoryChildren(drive.RootDirectory);
                         }
-                        catch (OperationCanceledException)
+                        catch (IOException)
                         {
-                            //ignored
+                            //Caused by a drive that can't be read
                         }
                     });
-
             return _gameFolders;
         }
 
@@ -76,25 +78,42 @@ namespace TheMvvmGuys.GameTracker
 
         private void EnumerateDirectoryChildren(DirectoryInfo directory)
         {
-            GetParallelQuery(directory.EnumerateDirectories())
-               .ForAll(
-                    dir =>
+                void CheckIfGameFolder(DirectoryInfo dir)
+                {
+                    _token.ThrowIfCancellationRequested();
+
+                    if (!CheckDirectory(dir))
                     {
-                        if (CheckDirectory(dir))
-                        {
-                            _gameFolders.Add(new GameFolder(dir.FullName));
-                        }
-                    });
+                        return;
+                    }
+
+                    var folder = new GameFolder(dir.FullName);
+                    _gameFolders.Add(folder);
+                    OnGameFolderFound(folder);
+
+                    _token.ThrowIfCancellationRequested();
+            }
+
+                directory.EnumerateDirectories().AsParallel()
+                   .WithCancellation(_token)
+                   .WithDegreeOfParallelism(MaximumTasks)
+                   .ForAll(CheckIfGameFolder);
         }
 
         private bool CheckDirectory(DirectoryInfo directory)
         {
             if (_requiredGameFolders.Any(
-                folder => folder.Name == directory.Name && folder.IsDirectoryInfoParentEqual(directory)))
+                folder => folder.Name == directory.Name && folder.IsDirectoryParentEqual(directory)))
             {
                 return true;
             }
 
+            CheckDirectoryChildren(directory);
+            return false;
+        }
+
+        private void CheckDirectoryChildren(DirectoryInfo directory)
+        {
             try
             {
                 if (directory.EnumerateDirectories()
@@ -103,11 +122,10 @@ namespace TheMvvmGuys.GameTracker
                     EnumerateDirectoryChildren(directory);
                 }
             }
-            catch (UnauthorizedAccessException e)
+            catch (UnauthorizedAccessException)
             {
+                //ignored
             }
-
-            return false;
         }
     }
 }

@@ -10,4 +10,5 @@
     <SolidColorBrush x:Key="ControlClickedBackgroundColor" po:Freeze="True" Color="Gray"/>
     <SolidColorBrush x:Key="ControlDisabledBackgroundColor" po:Freeze="True" Color="#A8A8A8"/>
     <SolidColorBrush x:Key="ControlDisabledBorderColor" po:Freeze="True" Color="DimGray"/>
+    <SolidColorBrush x:Key="TitleBarUnfocusedBorderColor" po:Freeze="True" Color="#7E9B9B9B"/>
 </ResourceDictionary>

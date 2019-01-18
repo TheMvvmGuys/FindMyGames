@@ -10,8 +10,8 @@
     <Grid Margin="{StaticResource FirstStartupPageMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="6*"/>
-            <RowDefinition Height="3*" MinHeight="125"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*" MinHeight="60"/>
         </Grid.RowDefinitions>
         <TextBlock VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}"
                    HorizontalAlignment="Center" Margin="5">Welcome to FindMyGames!</TextBlock>

@@ -61,10 +61,10 @@
                                 </Grid.ColumnDefinitions>
                                 <Grid x:Name="PART_MoveArea" Background="Transparent">
                                     <Viewbox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 1">
-                                        <TextBlock Text="{TemplateBinding Title}" />
+                                        <TextBlock Text="{TemplateBinding Title}" x:Name="TitleText"/>
                                     </Viewbox>
                                 </Grid>
-                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" x:Name="TitleBarButtons">
                                     <StackPanel.Resources>
                                         <Style TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}"/>
                                     </StackPanel.Resources>
@@ -85,7 +85,7 @@
                                         IsTabStop="false"/>
                         <Border BorderThickness="{TemplateBinding BorderThickness}"
                                 BorderBrush="{TemplateBinding BorderBrush}" 
-                                Background="{x:Null}"
+                                Background="{x:Null}" x:Name="WindowBorder"
                                 HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -94,6 +94,11 @@
                             <Setter TargetName="WindowResizeGrip"
                                     Property="Visibility"
                                     Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsActive" Value="False">
+                            <Setter Property="BorderBrush" Value="{DynamicResource TitleBarUnfocusedBorderColor}"/>
+                            <Setter TargetName="TitleBarButtons" Property="Opacity" Value="0.7"/>
+                            <Setter TargetName="TitleText" Property="Foreground" Value="{DynamicResource ControlDisabledBackgroundColor}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

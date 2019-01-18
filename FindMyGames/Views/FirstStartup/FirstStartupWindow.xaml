@@ -28,8 +28,8 @@
                         </Grid.ColumnDefinitions>
                         <DockPanel Margin="5 1">
                             <DockPanel DockPanel.Dock="Top">
-                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis" Foreground="{StaticResource WindowForegroundBrush}"/>
-                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{StaticResource WindowForegroundBrush}"/>
+                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis" />
+                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold"/>
                             </DockPanel>
                             <ProgressBar Value="10" Margin="0 5"/>
                         </DockPanel>

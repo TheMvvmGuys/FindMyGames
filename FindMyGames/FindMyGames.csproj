@@ -106,6 +106,8 @@
     <Compile Include="Interactivity\IInteractionBase.cs" />
     <Compile Include="Interactivity\IInteractionProvider.cs" />
     <Compile Include="NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="Themes\ThemeColorEntry.cs" />
+    <Compile Include="Themes\ThemeColorResourceDictionary.cs" />
     <Compile Include="Views\FirstStartup\FirstStartupWindow.xaml.cs">
       <DependentUpon>FirstStartupWindow.xaml</DependentUpon>
     </Compile>

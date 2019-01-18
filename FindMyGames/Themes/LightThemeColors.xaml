@@ -2,6 +2,21 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames"
                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
-    <SolidColorBrush x:Key="WindowBackgroundColor" po:Freeze="true" Color="#FDFDFD"/>
-    <SolidColorBrush x:Key="WindowForegroundColor" po:Freeze="True" Color="Black"/>
+    <!-- Nobody uses light theme lol jk -->
+    <!-- Window -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" po:Freeze="true" Color="#FDFDFD"/>
+    <SolidColorBrush x:Key="WindowForegroundBrush" po:Freeze="True" Color="Black"/>
+    <!-- Title bar -->
+    <SolidColorBrush x:Key="TitleBarUnfocusedBorderBrush" po:Freeze="True" Color="DarkGray"/>
+    <!-- => Title bar buttons -->
+    <SolidColorBrush x:Key="TitleBarButtonFocusedBackgroundBrush" po:Freeze="True" Color="LightGray"/>
+    <SolidColorBrush x:Key="TitleBarButtonClickedBackgroundBrush" po:Freeze="true" Color="DarkGray"/>
+    <SolidColorBrush x:Key="ContainerControlBackgroundBrush" po:Freeze="True" Color="Transparent"/>
+    <SolidColorBrush x:Key="ControlBorderBrush" po:Freeze="True" Color="Gray"/>
+    <SolidColorBrush x:Key="ControlBackgroundBrush" po:Freeze="True" Color="LightGray"/>
+    <SolidColorBrush x:Key="ControlFocusedBackgroundBrush" po:Freeze="True" Color="#A2D6FF"/>
+    <SolidColorBrush x:Key="ControlClickedBackgroundBrush" po:Freeze="True" Color="#75BCD8"/>
+    <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" po:Freeze="True" Color="#C2C2C2"/>
+    <SolidColorBrush x:Key="ControlDisabledBorderBrush" po:Freeze="True" Color="LightGray"/>
+
 </ResourceDictionary>

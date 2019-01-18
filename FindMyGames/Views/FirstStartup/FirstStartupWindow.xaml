@@ -9,7 +9,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.Controls"
         x:Class="TheMvvmGuys.FindMyGames.Views.FirstStartup.FirstStartupWindow"
-        mc:Ignorable="d" x:Name="Window"
+        mc:Ignorable="d" x:Name="Window" ResizeMode="CanResize"
         Title="FirstStartupWindow" Height="450" Width="800">
     <Window.Resources>
         <x:Array x:Key="PageUris" Type="sys:String">
@@ -28,8 +28,8 @@
                         </Grid.ColumnDefinitions>
                         <DockPanel Margin="5 1">
                             <DockPanel DockPanel.Dock="Top">
-                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis" Foreground="{StaticResource WindowForegroundColor}"/>
-                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{StaticResource WindowForegroundColor}"/>
+                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis" Foreground="{StaticResource WindowForegroundBrush}"/>
+                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold" Foreground="{StaticResource WindowForegroundBrush}"/>
                             </DockPanel>
                             <ProgressBar Value="10" Margin="0 5"/>
                         </DockPanel>

@@ -2,13 +2,22 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames"
                     xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
-    <SolidColorBrush x:Key="WindowBackgroundColor" po:Freeze="true" Color="#494949"/>
-    <SolidColorBrush x:Key="WindowForegroundColor" po:Freeze="True" Color="White"/>
-    <SolidColorBrush x:Key="ControlBorderColor" po:Freeze="True" Color="#D2D2D2"/>
-    <SolidColorBrush x:Key="ControlBackgroundColor" po:Freeze="True" Color="#585858"/>
-    <SolidColorBrush x:Key="ControlFocusedBackgroundColor" po:Freeze="True" Color="#6A6A6A"/>
-    <SolidColorBrush x:Key="ControlClickedBackgroundColor" po:Freeze="True" Color="Gray"/>
-    <SolidColorBrush x:Key="ControlDisabledBackgroundColor" po:Freeze="True" Color="#A8A8A8"/>
-    <SolidColorBrush x:Key="ControlDisabledBorderColor" po:Freeze="True" Color="DimGray"/>
-    <SolidColorBrush x:Key="TitleBarUnfocusedBorderColor" po:Freeze="True" Color="#7E9B9B9B"/>
+    <!-- Window -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" po:Freeze="true" Color="#494949"/>
+    <SolidColorBrush x:Key="WindowForegroundBrush" po:Freeze="True" Color="White"/>
+        <!-- => Title bars -->
+    <SolidColorBrush x:Key="TitleBarUnfocusedBorderBrush" po:Freeze="True" Color="#7E9B9B9B"/>
+           <!-- => Title bar buttons -->
+    <SolidColorBrush x:Key="TitleBarButtonFocusedBackgroundBrush" po:Freeze="True" Color="Gray"/>
+    <SolidColorBrush x:Key="TitleBarButtonClickedBackgroundBrush" po:Freeze="true" Color="DimGray"/>
+    <!-- Standard controls -->
+    <Color x:Key="ControlBackgroundBrushUniversal">#585858</Color>
+    <SolidColorBrush x:Key="ContainerControlBackgroundBrush" po:Freeze="True" Color="{StaticResource ControlBackgroundBrushUniversal}"/>
+    <SolidColorBrush x:Key="ControlBorderBrush" po:Freeze="True" Color="#D2D2D2"/>
+    <SolidColorBrush x:Key="ControlBackgroundBrush" po:Freeze="True" Color="{StaticResource ControlBackgroundBrushUniversal}"/>
+    <SolidColorBrush x:Key="ControlFocusedBackgroundBrush" po:Freeze="True" Color="#6A6A6A"/>
+    <SolidColorBrush x:Key="ControlClickedBackgroundBrush" po:Freeze="True" Color="Gray"/>
+    <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" po:Freeze="True" Color="#A8A8A8"/>
+    <SolidColorBrush x:Key="ControlDisabledBorderBrush" po:Freeze="True" Color="DimGray"/>
+
 </ResourceDictionary>

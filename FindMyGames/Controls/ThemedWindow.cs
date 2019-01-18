@@ -91,7 +91,7 @@ namespace TheMvvmGuys.FindMyGames.Controls
             {
                 var windowChrome = new WindowChromeBehavior
                 {
-                    IgnoreTaskbarOnMaximize = false,
+                    IgnoreTaskbarOnMaximize = true,
                     ResizeBorderThickness = new Thickness(5),
                     KeepBorderOnMaximize = true,                  
                 };

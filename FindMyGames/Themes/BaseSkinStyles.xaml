@@ -3,17 +3,17 @@
                     xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames"
                     xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.Controls">
     <Style TargetType="{x:Type TextBlock}" x:Key="ForegroundColorControlStyle">
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
     </Style>
 
-    <Style TargetType="{x:Type Control}" x:Key="ColoredContainerStyle">
-        <Setter Property="Background" Value="{DynamicResource WindowBackgroundColor}"/>
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
+    <Style TargetType="{x:Type Control}" x:Key="ColoredWindowStyle">
+        <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
     </Style>
-    <Style TargetType="{x:Type Window}" BasedOn="{StaticResource ColoredContainerStyle}"/>
-    <Style TargetType="{x:Type Frame}" BasedOn="{StaticResource ColoredContainerStyle}"/>
+    <Style TargetType="{x:Type Window}" BasedOn="{StaticResource ColoredWindowStyle}"/>
+    <Style TargetType="{x:Type Frame}" BasedOn="{StaticResource ColoredWindowStyle}"/>
     <Style TargetType="{x:Type Page}">
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundColor}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
     </Style>
     <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ForegroundColorControlStyle}"/>
     <Style TargetType="{x:Type TextBlock}" x:Key="HeaderTextStyle" BasedOn="{StaticResource ForegroundColorControlStyle}">
@@ -37,37 +37,40 @@
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlFocusedBackgroundColor}"/>
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlFocusedBackgroundBrush}"/>
                 <!--<Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>-->
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlClickedBackgroundColor}"/>
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlClickedBackgroundBrush}"/>
                 <!--<Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>-->
             </Trigger>
             <Trigger Property="ToggleButton.IsChecked" Value="True">
-                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlFocusedBackgroundColor}"/>
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlFocusedBackgroundBrush}"/>
                 <!--<Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>-->
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlDisabledBackgroundColor}"/>
-                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ControlDisabledBorderColor}"/>
+                <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlDisabledBackgroundBrush}"/>
+                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ControlDisabledBorderBrush}"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
     <Style TargetType="{x:Type Control}" x:Key="ColoredInteractiveControlStyle">
-        <Setter Property="Background" Value="{DynamicResource ControlBackgroundColor}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderColor}"/>
+        <Setter Property="Background" Value="{DynamicResource ControlBackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}"/>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Background" Value="{DynamicResource ControlDisabledBackgroundColor}"/>
+                <Setter Property="Background" Value="{DynamicResource ControlDisabledBackgroundBrush}"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+    <Style TargetType="{x:Type Control}" x:Key="ColoredContainerStyle" BasedOn="{StaticResource ColoredInteractiveControlStyle}">
+        <Setter Property="Background" Value="{DynamicResource ContainerControlBackgroundBrush}"/>
     </Style>
     <Style TargetType="{x:Type Button}" x:Key="ColoredButtonStyle" BasedOn="{StaticResource ColoredInteractiveControlStyle}">
         <Setter Property="Template" Value="{StaticResource ColoredButtonTemplate}"/>
     </Style>
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ColoredButtonStyle}"/>
-    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource ColoredInteractiveControlStyle}"/>
+    <Style TargetType="{x:Type ListBox}" BasedOn="{StaticResource ColoredContainerStyle}"/>
     <Thickness Bottom="15" Top="15" Left="25" Right="25" x:Key="FirstStartupPageMargin"/>
 </ResourceDictionary>

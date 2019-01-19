@@ -5,25 +5,25 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace TheMvvmGuys.GameTracker
+namespace TheMvvmGuys.GameScanner
 {
-    public class GameFolderTracker
+    public class LauncherFolderScanner
     {
-        private readonly IEnumerable<GameFolder> _requiredGameFolders;
+        private readonly IEnumerable<GameFolder> _launcherFolders;
         private readonly List<GameFolder> _gameFolders = new List<GameFolder>();
 
         private CancellationToken _token;
 
         public event EventHandler<GameFolderEventArgs> GameFolderFound;
 
-        public GameFolderTracker(string requiredFoldersPath)
+        public LauncherFolderScanner(string launcherFolders)
         {
-            _requiredGameFolders = PathToGameFolders(File.ReadAllLines(requiredFoldersPath));
+            _launcherFolders = PathToGameFolders(File.ReadAllLines(launcherFolders));
         }
 
-        public GameFolderTracker(IEnumerable<string> requiredFolders)
+        public LauncherFolderScanner(IEnumerable<string> launcherFolders)
         {
-            _requiredGameFolders = PathToGameFolders(requiredFolders);
+            _launcherFolders = PathToGameFolders(launcherFolders);
         }
 
         private IEnumerable<GameFolder> PathToGameFolders(IEnumerable<string> paths) 
@@ -32,13 +32,13 @@ namespace TheMvvmGuys.GameTracker
         private void OnGameFolderFound(GameFolder folder) 
             => GameFolderFound?.Invoke(this, new GameFolderEventArgs(folder));
 
-        public async Task<IEnumerable<GameFolder>> TrackGameFoldersAsync(CancellationToken token = default(CancellationToken))
+        public async Task<IEnumerable<GameFolder>> ScanGameFoldersAsync(CancellationToken token = default(CancellationToken))
         {
             _token = token;
 
             try
             {
-                return await Task.Run(() => TrackAllDrives(), token);
+                return await Task.Run(() => ScanAllDrives(), token);
             }
             catch (Exception)
             {
@@ -46,7 +46,7 @@ namespace TheMvvmGuys.GameTracker
             }
         }
 
-        private IEnumerable<GameFolder> TrackAllDrives()
+        private IEnumerable<GameFolder> ScanAllDrives()
         {
             GameFolderFound += (sender, args) => _gameFolders.Add(args.Folder);
 
@@ -97,7 +97,7 @@ namespace TheMvvmGuys.GameTracker
 
         private bool CheckDirectory(DirectoryInfo directory)
         {
-            if (_requiredGameFolders.Any(
+            if (_launcherFolders.Any(
                 folder => folder.Name == directory.Name && folder.IsDirectoryParentEqual(directory)))
             {
                 return true;

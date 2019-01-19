@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TheMvvmGuys.GameTracker
+namespace TheMvvmGuys.GameScanner
 {
     public class GameFolderEventArgs : EventArgs
     {

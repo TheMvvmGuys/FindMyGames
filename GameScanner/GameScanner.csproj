@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>TheMvvmGuys.GameTracker</RootNamespace>
+    <RootNamespace>TheMvvmGuys.GameScanner</RootNamespace>
     <LangVersion>default</LangVersion>
+    <AssemblyName>GameScanner</AssemblyName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 
-namespace TheMvvmGuys.GameTracker
+namespace TheMvvmGuys.GameScanner
 {
     public class GameFolder
     {

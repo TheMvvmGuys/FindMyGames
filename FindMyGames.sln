@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameScanner", "GameScanner\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameScanner.Tests", "GameScanner.Tests\GameScanner.Tests.csproj", "{ACD68E83-33FE-4CD2-98AD-80BB691AC103}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDLLs", "ExternalDLLs", "{79F76F1E-DBCB-4C9F-A207-C33E60B36602}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

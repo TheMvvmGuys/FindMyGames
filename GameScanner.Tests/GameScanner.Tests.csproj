@@ -5,7 +5,15 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>TheMvvmGuys.GameMetadata.Net.Tests</RootNamespace>
+    <RootNamespace>TheMvvmGuys.GameScanner.Tests</RootNamespace>
+
+    <AssemblyName>GameScanner.Tests</AssemblyName>
+
+    <ApplicationIcon />
+
+    <OutputType>Library</OutputType>
+
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GameMetadata.NET\GameMetadata.Net.csproj" />
+    <ProjectReference Include="..\GameScanner\GameScanner.csproj" />
   </ItemGroup>
 
 </Project>

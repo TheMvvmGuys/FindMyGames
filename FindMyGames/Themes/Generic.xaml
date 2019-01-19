@@ -65,9 +65,8 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid x:Name="PART_MoveArea" Background="Transparent">
-                                    <Viewbox VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10 2">
-                                        <TextBlock Text="{TemplateBinding Title}" x:Name="TitleText"/>
-                                    </Viewbox>
+                                    <TextBlock Text="{TemplateBinding Title}" x:Name="TitleText" FontSize="14" TextTrimming="CharacterEllipsis"
+                                               HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 2"/>
                                 </Grid>
                                 <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" x:Name="TitleBarButtons">
                                     <StackPanel.Resources>

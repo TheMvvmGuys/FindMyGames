@@ -36,7 +36,7 @@
             </Trigger>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlFocusedBackgroundBrush}"/>
-                <!--<Setter Property="BorderBrush" TargetName="border" Value="#FF3C7FB1"/>-->
+                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource ControlFocusedBorderBrush}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" TargetName="border" Value="{DynamicResource ControlClickedBackgroundBrush}"/>

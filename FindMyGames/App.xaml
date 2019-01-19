@@ -7,10 +7,12 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <themes:ThemeColorResourceDictionary x:Name="ThemeColors">
-                    <x:Array x:Key="No" Type="themes:ThemeColorEntry">
-                        <themes:ThemeColorEntry Name="Dark" Uri="Themes/DarkThemeColors.xaml"/>
-                        <themes:ThemeColorEntry Name="Light" Uri="Themes/LightThemeColors.xaml"/>
-                    </x:Array>
+                    <themes:ThemeColorResourceDictionary.Themes>
+                        <themes:ThemeColorEntryCollection>
+                            <themes:ThemeColorEntry Name="Dark" Uri="Themes/DarkThemeColors.xaml"/>
+                            <themes:ThemeColorEntry Name="Light" Uri="Themes/LightThemeColors.xaml"/>
+                        </themes:ThemeColorEntryCollection>
+                    </themes:ThemeColorResourceDictionary.Themes>
                 </themes:ThemeColorResourceDictionary>
                 <ResourceDictionary Source="Themes/BaseSkinStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>

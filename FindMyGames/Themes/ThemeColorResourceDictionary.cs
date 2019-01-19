@@ -9,9 +9,9 @@ namespace TheMvvmGuys.FindMyGames.Themes
     public class ThemeColorResourceDictionary : ResourceDictionary
     {
         private int _selectedIndex;
-        private IList<ThemeColorEntry> _themes;
+        private ThemeColorEntryCollection _themes;
 
-        public IList<ThemeColorEntry> Themes
+        public ThemeColorEntryCollection Themes
         {
             get => _themes;
             set { _themes = value; UpdateColors(true); }

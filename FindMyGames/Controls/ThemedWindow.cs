@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using ControlzEx.Behaviors;
 using ControlzEx.Controls;
 using Microsoft.Xaml.Behaviors;
@@ -33,14 +35,15 @@ namespace TheMvvmGuys.FindMyGames.Controls
 
         public ThemedWindow()
         {
-            InitializeWindowChromeBehaviors();
             Loaded += OnLoaded;
+            InitializeWindowChromeBehavior();
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             Loaded -= OnLoaded;
             InitializeGlowWindowBehavior();
+            _windowChrome.KeepBorderOnMaximize = true;
         }
 
         public override void OnApplyTemplate()
@@ -72,7 +75,7 @@ namespace TheMvvmGuys.FindMyGames.Controls
         }
 
         private void RestoreOrMaximize(object sender, RoutedEventArgs e)
-        {
+        { 
             WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
         }
 
@@ -86,16 +89,17 @@ namespace TheMvvmGuys.FindMyGames.Controls
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
-        private void InitializeWindowChromeBehaviors()
+
+        private WindowChromeBehavior _windowChrome;
+        private void InitializeWindowChromeBehavior()
         {
             {
-                var windowChrome = new WindowChromeBehavior
+                _windowChrome = new WindowChromeBehavior
                 {
-                    IgnoreTaskbarOnMaximize = true,
-                    ResizeBorderThickness = new Thickness(5),
-                    KeepBorderOnMaximize = true,                  
+                    IgnoreTaskbarOnMaximize = false,
+                    ResizeBorderThickness = new Thickness(5)                 
                 };
-                Interaction.GetBehaviors(this).Add(windowChrome);
+                Interaction.GetBehaviors(this).Add(_windowChrome);
             }          
             // TODO: Bindings and dps
         }

@@ -4,12 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:themes="clr-namespace:TheMvvmGuys.FindMyGames.Themes"
         xmlns:ui="clr-namespace:TheMvvmGuys.FindMyGames.UI"
         xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
         mc:Ignorable="d"
         Title="BlendPlayground" Height="450" Width="800">
     <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <Button x:Name="button" Width="140" Height="70" Content="Helluh" RenderTransformOrigin="0.5,0.5" 
                 VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click" 
                 ui:ButtonAnimation.ScaleUp="1.5">
@@ -25,6 +28,11 @@
                 <ScaleTransform/>
             </Button.RenderTransform>
         </Button>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Margin="15" Orientation="Horizontal">
+            <TextBlock Text="Animation scale up factor :"/>
+            <Slider Width="175" Minimum="0.5" Maximum="6" Value="{Binding ElementName=button, Path=(ui:ButtonAnimation.ScaleUp), Mode=TwoWay}" x:Name="Slider"/>
+            <TextBlock Text="{Binding ElementName=Slider, Path=Value, StringFormat=P0}" Margin="5 0"/>
+        </StackPanel>
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="CommonStates">
                 <VisualStateGroup.Transitions>
@@ -62,5 +70,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
+        
     </Grid>
 </controls:ThemedWindow>

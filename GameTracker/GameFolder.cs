@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -14,14 +15,13 @@ namespace TheMvvmGuys.GameTracker
         private string FullKnownName { get; }
 
         private IEnumerable<string> Parents => FullKnownName
-           .Split('/')
+           .Split('\\')
            .Reverse()
            .Skip(1);
 
         public GameFolder(string folderPath)
         {
-            Name = folderPath.Split('/')
-               .LastOrDefault();
+            Name = Path.GetFileName(folderPath);
             FullKnownName = folderPath;
         }
 

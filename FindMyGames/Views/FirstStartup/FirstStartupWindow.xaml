@@ -8,6 +8,7 @@
         xmlns:system="clr-namespace:System;assembly=System"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
+        xmlns:commands="clr-namespace:TheMvvmGuys.FindMyGames.UI.Commands"
         x:Class="TheMvvmGuys.FindMyGames.Views.FirstStartup.FirstStartupWindow"
         mc:Ignorable="d" x:Name="Window" ResizeMode="CanResize"
         Title="FirstStartupWindow" Height="450" Width="800">
@@ -16,7 +17,7 @@
             <system:Uri>WelcomePage.xaml</system:Uri>
             <system:Uri>PathChooserPage.xaml</system:Uri>
         </x:Array>
-        <root:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
+        <commands:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
         <converters:TriggerConverter x:Key="TriggerConverter"/>
         <ControlTemplate x:Key="FrameControlTemplate" TargetType="{x:Type Frame}">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">

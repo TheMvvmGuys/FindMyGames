@@ -106,12 +106,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="BlendPlayground.xaml.cs" />
+    <Compile Include="Extensions\UriExtensions.cs" />
+    <Compile Include="Extensions\Xaml\AppBinding.cs" />
+    <Compile Include="Extensions\Xaml\FindAncestor.cs" />
     <Compile Include="UI\Controls\ThemedWindow.cs" />
     <Compile Include="Converters\TriggerConverter.cs" />
-    <Compile Include="InteractionAttached.cs" />
+    <Compile Include="UI\InteractionAttached.cs" />
     <Compile Include="Interactivity\IInteractionBase.cs" />
     <Compile Include="Interactivity\IInteractionProvider.cs" />
-    <Compile Include="NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="UI\Commands\NavigationPageAggregatorCommmand.cs" />
     <Compile Include="UI\ButtonAnimation.cs" />
     <Compile Include="Themes\ThemeColorEntry.cs" />
     <Compile Include="Themes\ThemeColorEntryCollection.cs" />

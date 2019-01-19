@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using Microsoft.Xaml.Behaviors;
 
-namespace TheMvvmGuys.FindMyGames
+namespace TheMvvmGuys.FindMyGames.UI
 {
     public static class InteractionAttached
     {

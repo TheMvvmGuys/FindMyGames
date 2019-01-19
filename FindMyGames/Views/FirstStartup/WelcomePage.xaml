@@ -6,6 +6,8 @@
       xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames.Views.FirstStartup"
       xmlns:root="clr-namespace:TheMvvmGuys.FindMyGames"
       xmlns:themes="clr-namespace:TheMvvmGuys.FindMyGames.Themes"
+      xmlns:ext="clr-namespace:TheMvvmGuys.FindMyGames.Extensions"
+      xmlns:xaml="clr-namespace:TheMvvmGuys.FindMyGames.Extensions.Xaml"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WelcomePage">
@@ -26,8 +28,8 @@
             </TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5"> 
                 <TextBlock Text="Choose your theme: " FontSize="18" FontWeight="Bold"/>
-                <ComboBox ItemsSource="{Binding ThemeColorsDictionary.Themes, Source={x:Static root:App.CurrentAsApp}}"
-                          SelectedIndex="{Binding ThemeColorsDictionary.SelectedIndex, Source={x:Static root:App.CurrentAsApp}, Mode=TwoWay}">
+                <ComboBox ItemsSource="{xaml:AppBinding ThemeColorsDictionary.Themes}"
+                          SelectedIndex="{xaml:AppBinding ThemeColorsDictionary.SelectedIndex, Mode=TwoWay}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate DataType="themes:ThemeColorEntry">
                             <TextBlock Text="{Binding Name, Mode=OneTime}" FontSize="15"/>

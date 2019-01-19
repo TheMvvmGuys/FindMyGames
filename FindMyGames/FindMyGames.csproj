@@ -7,7 +7,7 @@
     <ProjectGuid>{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>TheMvvmGuys.FindMyGames</RootNamespace>
-    <AssemblyName>TheMvvmGuys.FindMyGames</AssemblyName>
+    <AssemblyName>FindMyGames</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,7 +66,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Themes\BaseSkinStyles.xaml">
+    <Page Include="BlendPlayground.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Resources\BaseSkinStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -73,11 +77,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\LightThemeColors.xaml">
+    <Page Include="Themes\Resources\LightThemeColors.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Themes\DarkThemeColors.xaml">
+    <Page Include="Themes\Resources\DarkThemeColors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,12 +105,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Controls\ThemedWindow.cs" />
+    <Compile Include="BlendPlayground.xaml.cs" />
+    <Compile Include="UI\Controls\ThemedWindow.cs" />
     <Compile Include="Converters\TriggerConverter.cs" />
     <Compile Include="InteractionAttached.cs" />
     <Compile Include="Interactivity\IInteractionBase.cs" />
     <Compile Include="Interactivity\IInteractionProvider.cs" />
     <Compile Include="NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="UI\ButtonAnimation.cs" />
     <Compile Include="Themes\ThemeColorEntry.cs" />
     <Compile Include="Themes\ThemeColorEntryCollection.cs" />
     <Compile Include="Themes\ThemeColorResourceDictionary.cs" />

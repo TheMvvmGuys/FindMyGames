@@ -1,26 +1,11 @@
-﻿using System;
-using System.CodeDom;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 using ControlzEx.Behaviors;
-using ControlzEx.Controls;
 using Microsoft.Xaml.Behaviors;
 
-namespace TheMvvmGuys.FindMyGames.Controls
+namespace TheMvvmGuys.FindMyGames.UI.Controls
 {
     [TemplatePart(Name = "PART_MoveArea", Type = typeof(FrameworkElement))]
     [TemplatePart(Name = "PART_MinimizeButton", Type = typeof(ButtonBase))]
@@ -31,6 +16,8 @@ namespace TheMvvmGuys.FindMyGames.Controls
         static ThemedWindow()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ThemedWindow), new FrameworkPropertyMetadata(typeof(ThemedWindow)));
+            AllowsTransparencyProperty.OverrideMetadata(typeof(ThemedWindow), new FrameworkPropertyMetadata(true));
+            WindowStyleProperty.OverrideMetadata(typeof(ThemedWindow), new FrameworkPropertyMetadata(WindowStyle.None));
         }
 
         public ThemedWindow()
@@ -75,8 +62,11 @@ namespace TheMvvmGuys.FindMyGames.Controls
         }
 
         private void RestoreOrMaximize(object sender, RoutedEventArgs e)
-        { 
-            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        {
+            if (WindowState == WindowState.Maximized)
+                SystemCommands.RestoreWindow(this);
+            else
+                SystemCommands.MaximizeWindow(this);
         }
 
         private void Minimize(object sender, RoutedEventArgs e)
@@ -97,10 +87,10 @@ namespace TheMvvmGuys.FindMyGames.Controls
                 _windowChrome = new WindowChromeBehavior
                 {
                     IgnoreTaskbarOnMaximize = false,
-                    ResizeBorderThickness = new Thickness(5)                 
+                    ResizeBorderThickness = new Thickness(5)
                 };
                 Interaction.GetBehaviors(this).Add(_windowChrome);
-            }          
+            }
             // TODO: Bindings and dps
         }
 

@@ -7,11 +7,11 @@ using System.Windows;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("TheMvvmGuys.FindMyGames")]
+[assembly: AssemblyTitle("FindMyGames")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TheMvvmGuys.FindMyGames")]
+[assembly: AssemblyProduct("FindMyGames")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -31,7 +31,7 @@ using System.Windows;
 
 
 [assembly: ThemeInfo(
-    ResourceDictionaryLocation.SourceAssembly, //où se trouvent les dictionnaires de ressources spécifiques à un thème
+    ResourceDictionaryLocation.None, //où se trouvent les dictionnaires de ressources spécifiques à un thème
                                      //(utilisé si une ressource est introuvable dans la page,
                                      // ou dictionnaires de ressources de l'application)
     ResourceDictionaryLocation.SourceAssembly //où se trouve le dictionnaire de ressources générique

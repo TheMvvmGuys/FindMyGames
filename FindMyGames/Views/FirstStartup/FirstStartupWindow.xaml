@@ -7,16 +7,16 @@
         xmlns:converters="clr-namespace:TheMvvmGuys.FindMyGames.Converters"
         xmlns:system="clr-namespace:System;assembly=System"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.Controls"
+        xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
         x:Class="TheMvvmGuys.FindMyGames.Views.FirstStartup.FirstStartupWindow"
         mc:Ignorable="d" x:Name="Window" ResizeMode="CanResize"
         Title="FirstStartupWindow" Height="450" Width="800">
     <Window.Resources>
-        <x:Array x:Key="PageUris" Type="sys:String">
-            <sys:String>WelcomePage.xaml</sys:String>
-            <sys:String>PathChooserPage.xaml</sys:String>
+        <x:Array x:Key="PageUris" Type="system:Uri">
+            <system:Uri>WelcomePage.xaml</system:Uri>
+            <system:Uri>PathChooserPage.xaml</system:Uri>
         </x:Array>
-        <root:NavigationPageAggregatorCommand x:Key="AggregatorCommand" RelativeUris="{StaticResource PageUris}"/>
+        <root:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
         <converters:TriggerConverter x:Key="TriggerConverter"/>
         <ControlTemplate x:Key="FrameControlTemplate" TargetType="{x:Type Frame}">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">

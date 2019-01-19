@@ -23,5 +23,5 @@
     <SolidColorBrush x:Key="ControlClickedBorderBrush" po:Freeze="True" Color="WhiteSmoke"/>
     <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" po:Freeze="True" Color="#A8A8A8"/>
     <SolidColorBrush x:Key="ControlDisabledBorderBrush" po:Freeze="True" Color="DimGray"/>
-
+    <Color x:Key="ButtonShadowColor">#292929</Color>
 </ResourceDictionary>

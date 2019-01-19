@@ -22,5 +22,5 @@
     <SolidColorBrush x:Key="ControlClickedBorderBrush" po:Freeze="True" Color="#59B5FF"/>
     <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" po:Freeze="True" Color="#C2C2C2"/>
     <SolidColorBrush x:Key="ControlDisabledBorderBrush" po:Freeze="True" Color="LightGray"/>
-
+    <Color x:Key="ButtonShadowColor">#CBCBCB</Color>
 </ResourceDictionary>

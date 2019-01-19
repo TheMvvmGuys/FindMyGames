@@ -6,15 +6,15 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <themes:ThemeColorResourceDictionary x:Name="ThemeColors">
+                <themes:ThemeColorResourceDictionary>
                     <themes:ThemeColorResourceDictionary.Themes>
                         <themes:ThemeColorEntryCollection>
-                            <themes:ThemeColorEntry Name="Dark" Uri="Themes/DarkThemeColors.xaml"/>
-                            <themes:ThemeColorEntry Name="Light" Uri="Themes/LightThemeColors.xaml"/>
+                            <themes:ThemeColorEntry Name="Dark" Uri="Themes/Resources/DarkThemeColors.xaml"/>
+                            <themes:ThemeColorEntry Name="Light" Uri="Themes/Resources/LightThemeColors.xaml"/>
                         </themes:ThemeColorEntryCollection>
                     </themes:ThemeColorResourceDictionary.Themes>
                 </themes:ThemeColorResourceDictionary>
-                <ResourceDictionary Source="Themes/BaseSkinStyles.xaml"/>
+                <ResourceDictionary Source="Themes/Resources/BaseSkinStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

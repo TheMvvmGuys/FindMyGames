@@ -40,7 +40,7 @@ namespace TheMvvmGuys.GameTracker
             {
                 return await Task.Run(() => TrackAllDrives(), token);
             }
-            catch (OperationCanceledException )
+            catch (Exception)
             {
                 return _gameFolders;
             }
@@ -50,6 +50,8 @@ namespace TheMvvmGuys.GameTracker
         {
             GameFolderFound += (sender, args) => _gameFolders.Add(args.Folder);
 
+            List<GameFolder> gameFolders = new List<GameFolder>();
+
             DriveInfo.GetDrives().AsParallel()
                .WithCancellation(_token)
                .ForAll(
@@ -57,14 +59,14 @@ namespace TheMvvmGuys.GameTracker
                     {
                         try
                         {
-                            _gameFolders.AddRange(EnumerateDirectoryChildren(drive.RootDirectory));
+                            gameFolders.AddRange(EnumerateDirectoryChildren(drive.RootDirectory));
                         }
                         catch (IOException)
                         {
                             //Caused by a drive that can't be read
                         }
                     });
-            return _gameFolders;
+            return gameFolders;
         }
 
         private IEnumerable<GameFolder> EnumerateDirectoryChildren(DirectoryInfo directory)

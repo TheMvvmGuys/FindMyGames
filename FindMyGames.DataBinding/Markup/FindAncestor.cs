@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Data;
 
-namespace TheMvvmGuys.FindMyGames.Extensions.Xaml
+namespace TheMvvmGuys.FindMyGames.DataBinding.Markup
 {
     public class FindAncestor : RelativeSource
     {

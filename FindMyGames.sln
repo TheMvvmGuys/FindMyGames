@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTracker", "GameTracker\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalDLLs", "ExternalDLLs", "{79F76F1E-DBCB-4C9F-A207-C33E60B36602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyGames.DataBinding", "FindMyGames.DataBinding\FindMyGames.DataBinding.csproj", "{4A99CABB-BF09-4DC1-84F0-1F05E5EA813B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE2E10FF-0BE6-458F-8CBD-CF6ACBD9F297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A99CABB-BF09-4DC1-84F0-1F05E5EA813B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A99CABB-BF09-4DC1-84F0-1F05E5EA813B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A99CABB-BF09-4DC1-84F0-1F05E5EA813B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A99CABB-BF09-4DC1-84F0-1F05E5EA813B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

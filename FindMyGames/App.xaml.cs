@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Runtime;
 using System.Windows;
 using TheMvvmGuys.FindMyGames.Themes;
 using TheMvvmGuys.FindMyGames.Views.FirstStartup;
@@ -11,6 +13,14 @@ namespace TheMvvmGuys.FindMyGames
     public partial class App : Application
     {
         public static App CurrentAsApp => Current as App;
+        private const string ProfileFileName = "OptimizationProfile.profile";
+
+        public App()
+        {
+            // Multi core JIT 
+            ProfileOptimization.SetProfileRoot(AppDomain.CurrentDomain.BaseDirectory);
+            ProfileOptimization.StartProfile(ProfileFileName);
+        }
 
         public ThemeColorResourceDictionary ThemeColorsDictionary
             => (ThemeColorResourceDictionary) Resources.MergedDictionaries.FirstOrDefault(r =>

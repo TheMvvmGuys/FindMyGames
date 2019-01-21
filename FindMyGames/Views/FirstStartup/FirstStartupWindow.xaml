@@ -3,10 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:root="clr-namespace:TheMvvmGuys.FindMyGames"
-        xmlns:converters="clr-namespace:TheMvvmGuys.FindMyGames.Converters"
+        xmlns:f="urn:find-my-games"
         xmlns:system="clr-namespace:System;assembly=System"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
         xmlns:commands="clr-namespace:TheMvvmGuys.FindMyGames.UI.Commands"
         x:Class="TheMvvmGuys.FindMyGames.Views.FirstStartup.FirstStartupWindow"
@@ -18,7 +16,7 @@
             <system:Uri>PathChooserPage.xaml</system:Uri>
         </x:Array>
         <commands:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
-        <converters:TriggerConverter x:Key="TriggerConverter"/>
+        <f:TriggerConverter x:Key="TriggerConverter"/>
         <ControlTemplate x:Key="FrameControlTemplate" TargetType="{x:Type Frame}">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                 <DockPanel>

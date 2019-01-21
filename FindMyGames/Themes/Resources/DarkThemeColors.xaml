@@ -13,10 +13,9 @@
     <SolidColorBrush x:Key="TitleBarButtonFocusedBackgroundBrush" po:Freeze="True" Color="Gray"/>
     <SolidColorBrush x:Key="TitleBarButtonClickedBackgroundBrush" po:Freeze="true" Color="DimGray"/>
     <!-- Standard controls -->
-    <Color x:Key="ControlBackgroundBrushUniversal">#585858</Color>
-    <SolidColorBrush x:Key="ContainerControlBackgroundBrush" po:Freeze="True" Color="{StaticResource ControlBackgroundBrushUniversal}"/>
+    <SolidColorBrush x:Key="ContainerControlBackgroundBrush" po:Freeze="True" Color="#6C6C6C"/>
     <SolidColorBrush x:Key="ControlBorderBrush" po:Freeze="True" Color="#D2D2D2"/>
-    <SolidColorBrush x:Key="ControlBackgroundBrush" po:Freeze="True" Color="{StaticResource ControlBackgroundBrushUniversal}"/>
+    <SolidColorBrush x:Key="ControlBackgroundBrush" po:Freeze="True" Color="#585858"/>
     <SolidColorBrush x:Key="ControlFocusedBorderBrush" po:Freeze="True" Color="White"/>
     <SolidColorBrush x:Key="ControlFocusedBackgroundBrush" po:Freeze="True" Color="#6A6A6A"/>
     <SolidColorBrush x:Key="ControlClickedBackgroundBrush" po:Freeze="True" Color="Gray"/>

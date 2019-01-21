@@ -14,10 +14,5 @@ namespace TheMvvmGuys.FindMyGames
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            VisualStateManager.GoToElementState(button.Parent as FrameworkElement, "Hovered", true);
-        }
     }
 }

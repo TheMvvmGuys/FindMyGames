@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using GameMetadata.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 

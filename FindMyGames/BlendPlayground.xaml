@@ -6,14 +6,31 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:ui="clr-namespace:TheMvvmGuys.FindMyGames.UI"
         xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
-        xmlns:f="urn:find-my-games"
+        xmlns:f="urn:find-my-games" d:DesignStyle="{StaticResource ColoredWindowStyle}"
         mc:Ignorable="d"
         Title="BlendPlayground" Height="450" Width="800">
     <Window.Resources>
         <f:MathExpressionConverter x:Key="MathConverter"/>
     </Window.Resources>
     <Grid>
-        <Slider VerticalAlignment="Top" HorizontalAlignment="Center" Margin="25" Width="250" Minimum="120" Maximum="450" x:Name="Slider"/>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{f:MathBinding Value, 'value * 5', ElementName=Slider}"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Width="240" Height="20" SelectedIndex="0">
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+        </ComboBox>
+        <Slider VerticalAlignment="Top" HorizontalAlignment="Center" Width="250" Minimum="120" Maximum="450" x:Name="Slider" Grid.Row="1"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{f:MathBinding Value, 'value * 5', ElementName=Slider}" Grid.Row="1"/>
     </Grid>
 </controls:ThemedWindow>

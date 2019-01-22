@@ -18,9 +18,13 @@
     <SolidColorBrush x:Key="ControlBackgroundBrush" po:Freeze="True" Color="#585858"/>
     <SolidColorBrush x:Key="ControlFocusedBorderBrush" po:Freeze="True" Color="White"/>
     <SolidColorBrush x:Key="ControlFocusedBackgroundBrush" po:Freeze="True" Color="#6A6A6A"/>
+    <SolidColorBrush x:Key="ControlKeyboardFocusedBackgroundBrush" po:Freeze="True" Color="#6F6F6F"/>
     <SolidColorBrush x:Key="ControlClickedBackgroundBrush" po:Freeze="True" Color="Gray"/>
     <SolidColorBrush x:Key="ControlClickedBorderBrush" po:Freeze="True" Color="WhiteSmoke"/>
     <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" po:Freeze="True" Color="#A8A8A8"/>
     <SolidColorBrush x:Key="ControlDisabledBorderBrush" po:Freeze="True" Color="DimGray"/>
+    <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" po:Freeze="True" Color="#404040"/>
+    <SolidColorBrush x:Key="ControlSelectedHoverBackgroundBrush" po:Freeze="True" Color="#4F4F4F"/>
+    <SolidColorBrush x:Key="ControlKeyboardFocusedSelectedBackgroundBrush" po:Freeze="True" Color="#464646"/>
     <Color x:Key="ButtonShadowColor">#292929</Color>
 </ResourceDictionary>

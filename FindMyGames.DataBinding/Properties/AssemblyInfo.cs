@@ -57,6 +57,8 @@ using static AssemblyInfo;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: XmlnsDefinition(XamlNamespace, Base + "Converters")]
 [assembly: XmlnsDefinition(XamlNamespace, Base + "Markup")]
+[assembly: XmlnsDefinition(XamlNamespace, Base + "Triggers")]
+[assembly: XmlnsPrefix(XamlNamespace, "f")]
 internal static class AssemblyInfo
 {
     public const string XamlNamespace = "urn:find-my-games";

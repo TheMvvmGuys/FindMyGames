@@ -113,14 +113,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="19"/>
             </Grid.ColumnDefinitions>
-            <Popup x:Name="PART_Popup" AllowsTransparency="True" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" 
-                   Margin="0" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom" HorizontalAlignment="Stretch" Width="{Binding ActualWidth, ElementName=templateRoot}">
-                <Border x:Name="DropDownBorder" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" HorizontalAlignment="Stretch">
+            <Popup x:Name="PART_Popup" AllowsTransparency="True" Grid.ColumnSpan="2" IsOpen="{TemplateBinding IsDropDownOpen}"
+                   Margin="0" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                <Border x:Name="DropDownBorder" BorderBrush="{DynamicResource ControlBorderBrush}" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" 
+                        HorizontalAlignment="Stretch" MinWidth="{TemplateBinding ActualWidth}" MaxHeight="{TemplateBinding MaxDropDownHeight}">
                     <ScrollViewer x:Name="DropDownScrollViewer">
                         <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
-                            <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-                                <Rectangle x:Name="OpaqueRect" Fill="{Binding Background, ElementName=DropDownBorder}" Height="{Binding ActualHeight, ElementName=DropDownBorder}" Width="{Binding ActualWidth, ElementName=DropDownBorder}"/>
-                            </Canvas>
+                            <Rectangle x:Name="OpaqueRect" Fill="{Binding Background, ElementName=DropDownBorder}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Panel.ZIndex="-1"/>
                             <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Grid>
                     </ScrollViewer>
@@ -254,7 +253,7 @@
         </Style.Triggers>
     </Style>
     <ControlTemplate x:Key="ColoredComboBoxItemTemplate" TargetType="{x:Type ComboBoxItem}">
-        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+        <Border x:Name="Bd" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
             <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Border>
         <ControlTemplate.Triggers>

@@ -6,7 +6,7 @@
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:ui="clr-namespace:TheMvvmGuys.FindMyGames.UI"
         xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
-        xmlns:f="urn:find-my-games" d:DesignStyle="{StaticResource ColoredWindowStyle}"
+        xmlns:f="urn:find-my-games" 
         mc:Ignorable="d"
         Title="BlendPlayground" Height="450" Width="800">
     <Window.Resources>

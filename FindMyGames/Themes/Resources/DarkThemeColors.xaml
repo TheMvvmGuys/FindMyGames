@@ -26,5 +26,8 @@
     <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" po:Freeze="True" Color="#404040"/>
     <SolidColorBrush x:Key="ControlSelectedHoverBackgroundBrush" po:Freeze="True" Color="#4F4F4F"/>
     <SolidColorBrush x:Key="ControlKeyboardFocusedSelectedBackgroundBrush" po:Freeze="True" Color="#464646"/>
+    <!-- Special controls colors -->
+    <SolidColorBrush x:Key="ComboBoxArrowFocusedBrush" po:Freeze="True" Color="#C3C3C3"/>
+    <SolidColorBrush x:Key="ComboBoxArrowClickedBrush" po:Freeze="True" Color="#E1E1E1"/>
     <Color x:Key="ButtonShadowColor">#292929</Color>
 </ResourceDictionary>

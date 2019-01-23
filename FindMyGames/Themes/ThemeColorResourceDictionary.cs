@@ -23,6 +23,11 @@ namespace TheMvvmGuys.FindMyGames.Themes
             set { _selectedIndex = value; UpdateColors(); }
         }
 
+        public ThemeColorEntry SelectedItem
+        {
+            get => Themes[_selectedIndex];
+            set => SelectedIndex = Themes.IndexOf(value);
+        }
         private void UpdateColors(bool isFirst = false)
         {
             if (Themes is null || Themes.Count == 0)

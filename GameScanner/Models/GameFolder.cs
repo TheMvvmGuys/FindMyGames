@@ -11,7 +11,7 @@ namespace TheMvvmGuys.GameScanner
         /// <summary>
         /// The full name with all of the parents we know about (if any)
         /// </summary>
-        private string FullKnownName { get; }
+        public string FullKnownName { get; }
 
         private IEnumerable<string> Parents => FullKnownName
            .Split('\\')
@@ -44,7 +44,14 @@ namespace TheMvvmGuys.GameScanner
             {
                 return false;
             }
-            return d.Parent?.Name == Parents.First();
+
+            string directoryParent = d.Parent?.Name;
+            if (Parents.Any())
+            {
+                return directoryParent == Parents.First();
+            }
+
+            return directoryParent == Name;
         }
     }
 }

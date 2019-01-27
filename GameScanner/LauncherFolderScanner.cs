@@ -16,9 +16,9 @@ namespace TheMvvmGuys.GameScanner
 
         public event EventHandler<GameFolderEventArgs> GameFolderFound;
 
-        public LauncherFolderScanner(string launcherFolders)
+        public LauncherFolderScanner(string launcherFoldersPath)
         {
-            _launcherFolders = PathToGameFolders(File.ReadAllLines(launcherFolders));
+            _launcherFolders = PathToGameFolders(File.ReadAllLines(launcherFoldersPath));
         }
 
         public LauncherFolderScanner(IEnumerable<string> launcherFolders)
@@ -26,19 +26,19 @@ namespace TheMvvmGuys.GameScanner
             _launcherFolders = PathToGameFolders(launcherFolders);
         }
 
-        private IEnumerable<GameFolder> PathToGameFolders(IEnumerable<string> paths) 
+        private static IEnumerable<GameFolder> PathToGameFolders(IEnumerable<string> paths) 
             => paths.Select(path => new GameFolder(path));
 
         private void OnGameFolderFound(GameFolder folder) 
             => GameFolderFound?.Invoke(this, new GameFolderEventArgs(folder));
 
-        public async Task<IEnumerable<GameFolder>> ScanGameFoldersAsync(CancellationToken token = default(CancellationToken))
+        public async Task<IEnumerable<GameFolder>> ScanDrivesAsync(CancellationToken token = default(CancellationToken))
         {
             _token = token;
 
             try
             {
-                return await Task.Run(() => ScanAllDrives(), token);
+                return await Task.Run(() => ScanDrives(), token);
             }
             catch (Exception)
             {
@@ -46,7 +46,7 @@ namespace TheMvvmGuys.GameScanner
             }
         }
 
-        private IEnumerable<GameFolder> ScanAllDrives()
+        private IEnumerable<GameFolder> ScanDrives()
         {
             GameFolderFound += (sender, args) => _gameFolders.Add(args.Folder);
 

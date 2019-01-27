@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -13,13 +14,19 @@ namespace TheMvvmGuys.GameScanner.Tests
         public async Task Test_10SecondTrack()
         {
             var cts = new CancellationTokenSource();
-            var gameTracker = new LauncherFolderScanner(new []{ @"steamapps\common" });
+            var gameTracker = new LauncherFolderScanner(new []{ @"steamapps\common", @"Origin"});
             var actualFolders = new List<GameFolder>();
             gameTracker.GameFolderFound += (sender, e) => actualFolders.Add(e.Folder);
-            //cts.CancelAfter(TimeSpan.FromSeconds(30));
-            IEnumerable<GameFolder> folders = await gameTracker.ScanGameFoldersAsync(cts.Token);
+            cts.CancelAfter(TimeSpan.FromSeconds(20));
+            IEnumerable<GameFolder> folders = await gameTracker.ScanDrivesAsync(cts.Token);
+
+            //Assert.IsTrue(folders.Any());
+
+            var gameScanner = new GameScanner();
+
+            Dictionary<GameFolder, IEnumerable<ScannedGame>> a = await gameScanner.ScanLauncherFoldersAsync(actualFolders);
             
-            Assert.IsTrue(folders.Any());
+            Assert.IsTrue(a.Any());
         }
     }
 }

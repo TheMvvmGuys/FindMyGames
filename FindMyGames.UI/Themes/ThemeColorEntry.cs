@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TheMvvmGuys.FindMyGames.Themes
+namespace TheMvvmGuys.FindMyGames.UI.Themes
 {
     public class ThemeColorEntry
     {

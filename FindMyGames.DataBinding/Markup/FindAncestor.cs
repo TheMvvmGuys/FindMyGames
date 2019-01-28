@@ -9,7 +9,7 @@ namespace TheMvvmGuys.FindMyGames.DataBinding.Markup
         {
             Mode = RelativeSourceMode.FindAncestor;           
         }
-        public FindAncestor(Type ancestorType) : base(RelativeSourceMode.FindAncestor, ancestorType, 0)
+        public FindAncestor(Type ancestorType) : base(RelativeSourceMode.FindAncestor, ancestorType, 1)
         {
 
         }

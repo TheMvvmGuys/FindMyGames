@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TheMvvmGuys.FindMyGames
+namespace TheMvvmGuys.FindMyGames.Views
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml

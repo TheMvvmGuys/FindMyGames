@@ -4,20 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DE02DEC6-B4F0-4DF8-89A1-DC6B1546EB5A}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>TheMvvmGuys.FindMyGames</RootNamespace>
-    <AssemblyName>FindMyGames</AssemblyName>
+    <ProjectGuid>{64B09EFF-7B7F-4474-82EE-79E5CF3ACE39}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>TheMvvmGuys.FindMyGames.UI</RootNamespace>
+    <AssemblyName>FindMyGames.UI</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,10 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,9 +34,6 @@
   <ItemGroup>
     <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
       <HintPath>..\packages\ControlzEx.4.0.0-alpha0222\lib\net462\ControlzEx.dll</HintPath>
-    </Reference>
-    <Reference Include="Jeuxjeux20.Mvvm, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jeuxjeux20.Mvvm.1.0.1\lib\net452\Jeuxjeux20.Mvvm.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.0.1\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
@@ -62,52 +54,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="BlendPlayground.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FirstStartup\FirstStartupWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FirstStartup\PathChooserPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FirstStartup\WelcomePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="BlendPlayground.xaml.cs" />
-    <Compile Include="Extensions\Xaml\AppBinding.cs" />
-    <Compile Include="Interactivity\IInteractionBase.cs" />
-    <Compile Include="Interactivity\IInteractionProvider.cs" />
-    <Compile Include="Views\FirstStartup\FirstStartupWindow.xaml.cs">
-      <DependentUpon>FirstStartupWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FirstStartup\PathChooserPage.xaml.cs">
-      <DependentUpon>PathChooserPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FirstStartup\WelcomePage.xaml.cs">
-      <DependentUpon>WelcomePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="ButtonAnimation.cs" />
+    <Compile Include="Commands\NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="Controls\ThemedWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -121,11 +70,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Themes\IntellisenseProviderResourceDictionary.cs" />
+    <Compile Include="Themes\ThemeColorEntry.cs" />
+    <Compile Include="Themes\ThemeColorEntryCollection.cs" />
+    <Compile Include="Themes\ThemeColorResourceDictionary.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Fonts\SegMDL2.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,23 +85,35 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Resources\BaseSkinStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Resources\DarkThemeColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Resources\Empty.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Resources\LightThemeColors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FindMyGames.DataBinding\FindMyGames.DataBinding.csproj">
       <Project>{4a99cabb-bf09-4dc1-84f0-1f05e5ea813b}</Project>
       <Name>FindMyGames.DataBinding</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FindMyGames.UI\FindMyGames.UI.csproj">
-      <Project>{64b09eff-7b7f-4474-82ee-79e5cf3ace39}</Project>
-      <Name>FindMyGames.UI</Name>
+    <ProjectReference Include="..\FindMyGames.Utilities\FindMyGames.Utilities.csproj">
+      <Project>{895421c7-c20e-4b9d-9a27-2d5b2ca3d63b}</Project>
+      <Name>FindMyGames.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

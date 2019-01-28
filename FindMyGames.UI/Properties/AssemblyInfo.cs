@@ -1,17 +1,18 @@
 ﻿using System.Reflection;
+using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Markup;
-using TheMvvmGuys.FindMyGames.DataBinding.Properties;
-
+using static AssemblyInfo;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("FindMyGames.DataBinding")]
+[assembly: AssemblyTitle("WpfCustomControlLibrary1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FindMyGames.DataBinding")]
+[assembly: AssemblyProduct("WpfCustomControlLibrary1")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -53,15 +54,15 @@ using TheMvvmGuys.FindMyGames.DataBinding.Properties;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: XmlnsDefinition(AssemblyInfo.XamlNamespace, AssemblyInfo.Base + "Converters")]
-[assembly: XmlnsDefinition(AssemblyInfo.XamlNamespace, AssemblyInfo.Base + "Markup")]
-[assembly: XmlnsDefinition(AssemblyInfo.XamlNamespace, AssemblyInfo.Base + "Triggers")]
-[assembly: XmlnsPrefix(AssemblyInfo.XamlNamespace, "f")]
-namespace TheMvvmGuys.FindMyGames.DataBinding.Properties
+[assembly: XmlnsDefinition(XmlnsNamespace, "TheMvvmGuys.FindMyGames.UI")]
+[assembly: XmlnsDefinition(XmlnsNamespace, Base + "Commands")]
+[assembly: XmlnsDefinition(XmlnsNamespace, Base + "Controls")]
+[assembly: XmlnsDefinition(XmlnsNamespace, Base + "Themes")]
+[assembly: XmlnsDefinition(XmlnsNamespace, Base + "Commands")]
+[assembly: XmlnsPrefix(XmlnsNamespace, "f")]
+
+internal static class AssemblyInfo
 {
-    internal static class AssemblyInfo
-    {
-        public const string XamlNamespace = "urn:find-my-games";
-        public const string Base = "TheMvvmGuys.FindMyGames.DataBinding.";
-    }
+    public const string Base = "TheMvvmGuys.FindMyGames.UI.";
+    public const string XmlnsNamespace = "urn:find-my-games";
 }

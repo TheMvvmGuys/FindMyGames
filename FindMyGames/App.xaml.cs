@@ -3,7 +3,8 @@ using System.Linq;
 using System.Runtime;
 using System.Windows;
 using System.Windows.Media.Animation;
-using TheMvvmGuys.FindMyGames.Themes;
+using TheMvvmGuys.FindMyGames.UI.Themes;
+using TheMvvmGuys.FindMyGames.Views;
 using TheMvvmGuys.FindMyGames.Views.FirstStartup;
 
 namespace TheMvvmGuys.FindMyGames

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
-using TheMvvmGuys.FindMyGames.Extensions;
+using TheMvvmGuys.FindMyGames.Utilities.Extensions;
 
 namespace TheMvvmGuys.FindMyGames.UI.Commands
 {

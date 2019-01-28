@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Markup;
 
-namespace TheMvvmGuys.FindMyGames.Themes
+namespace TheMvvmGuys.FindMyGames.UI.Themes
 {
     [ContentProperty(nameof(Themes))]
     public class ThemeColorResourceDictionary : ResourceDictionary

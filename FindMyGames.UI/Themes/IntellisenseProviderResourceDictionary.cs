@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 
-namespace TheMvvmGuys.FindMyGames.Themes
+namespace TheMvvmGuys.FindMyGames.UI.Themes
 {
     public sealed class IntellisenseProviderResourceDictionary : ResourceDictionary
     {

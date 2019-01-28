@@ -1,12 +1,10 @@
-﻿<controls:ThemedWindow
+﻿<f:ThemedWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:f="urn:find-my-games"
         xmlns:system="clr-namespace:System;assembly=System"
-        xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
-        xmlns:commands="clr-namespace:TheMvvmGuys.FindMyGames.UI.Commands"
         x:Class="TheMvvmGuys.FindMyGames.Views.FirstStartup.FirstStartupWindow"
         mc:Ignorable="d" x:Name="Window" ResizeMode="CanResize"
         Title="FirstStartupWindow" Height="450" Width="800">
@@ -15,7 +13,7 @@
             <system:Uri>WelcomePage.xaml</system:Uri>
             <system:Uri>PathChooserPage.xaml</system:Uri>
         </x:Array>
-        <commands:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
+        <f:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
         <f:TriggerConverter x:Key="TriggerConverter"/>
         <ControlTemplate x:Key="FrameControlTemplate" TargetType="{x:Type Frame}">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
@@ -62,4 +60,4 @@
         </ControlTemplate>
     </Window.Resources>
     <Frame Source="{Binding [0], Source={StaticResource PageUris}}" Template="{DynamicResource FrameControlTemplate}" x:Name="Frame" FocusVisualStyle="{x:Null}"/>
-</controls:ThemedWindow>
+</f:ThemedWindow>

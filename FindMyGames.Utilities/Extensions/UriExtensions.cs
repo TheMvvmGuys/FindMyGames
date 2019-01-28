@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 
-namespace TheMvvmGuys.FindMyGames.Extensions
+namespace TheMvvmGuys.FindMyGames.Utilities.Extensions
 {
-    internal static class UriExtensions
+    public static class UriExtensions
     {
         public static string GetLastElement(this Uri u) => u.OriginalString.Split('/', '\\').Last();
     }

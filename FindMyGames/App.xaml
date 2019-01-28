@@ -1,23 +1,23 @@
 ﻿<Application x:Class="TheMvvmGuys.FindMyGames.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="clr-namespace:TheMvvmGuys.FindMyGames.Themes"
+             xmlns:f="urn:find-my-games"
              xmlns:system="clr-namespace:System;assembly=System">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <!-- The following resource dictionary only applies when the app is in DEBUG and in design mode. -->
                 <!-- This enables intellisense and styles inside the designer. -->
-                <themes:IntellisenseProviderResourceDictionary Source="Themes/Resources/DarkThemeColors.xaml"/>
-                <themes:ThemeColorResourceDictionary>
-                    <themes:ThemeColorResourceDictionary.Themes>
-                        <themes:ThemeColorEntryCollection>
-                            <themes:ThemeColorEntry Name="Dark" Uri="Themes/Resources/DarkThemeColors.xaml"/>
-                            <themes:ThemeColorEntry Name="Light" Uri="Themes/Resources/LightThemeColors.xaml"/>
-                        </themes:ThemeColorEntryCollection>
-                    </themes:ThemeColorResourceDictionary.Themes>
-                </themes:ThemeColorResourceDictionary>
-                <ResourceDictionary Source="Themes/Resources/BaseSkinStyles.xaml"/>
+                <f:IntellisenseProviderResourceDictionary Source="pack://application:,,,/FindMyGames.UI;component/Themes/Resources/DarkThemeColors.xaml"/>
+                <f:ThemeColorResourceDictionary>
+                    <f:ThemeColorResourceDictionary.Themes>
+                        <f:ThemeColorEntryCollection>
+                            <f:ThemeColorEntry Name="Dark" Uri="pack://application:,,,/FindMyGames.UI;component/Themes/Resources/DarkThemeColors.xaml"/>
+                            <f:ThemeColorEntry Name="Light" Uri="pack://application:,,,/FindMyGames.UI;component/Themes/Resources/LightThemeColors.xaml"/>
+                        </f:ThemeColorEntryCollection>
+                    </f:ThemeColorResourceDictionary.Themes>
+                </f:ThemeColorResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/FindMyGames.UI;component/Themes/Resources/BaseSkinStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

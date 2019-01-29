@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace GameMetadata.Net
+namespace TheMvvmGuys.GameMetadata.Net
 {
     public class GameImage
     {

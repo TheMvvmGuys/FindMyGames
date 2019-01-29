@@ -5,10 +5,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using GameMetadata.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace GameMetadata.Net
+namespace TheMvvmGuys.GameMetadata.Net
 {
     public class MetadataClient
     {

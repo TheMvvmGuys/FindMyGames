@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace GameMetadata.Net.Tests
+namespace TheMvvmGuys.GameMetadata.Net.Tests
 {
     [TestClass]
     [TestCategory("JSON Serialization tests")]

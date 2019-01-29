@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
-using System.Windows.Navigation;
-using TheMvvmGuys.FindMyGames.Extensions;
-using TheMvvmGuys.FindMyGames.Views.FirstStartup;
+using TheMvvmGuys.FindMyGames.Utilities.Extensions;
 
-namespace TheMvvmGuys.FindMyGames
+namespace TheMvvmGuys.FindMyGames.UI.Commands
 {
     public class NavigationPageAggregatorCommand : ICommand
     {
@@ -79,9 +76,5 @@ namespace TheMvvmGuys.FindMyGames
         }
 
         public event EventHandler CanExecuteChanged;
-    }
-    internal static class UriExtensions
-    {
-        public static string GetLastElement(this Uri u) => u.OriginalString.Split('/', '\\').Last();
     }
 }

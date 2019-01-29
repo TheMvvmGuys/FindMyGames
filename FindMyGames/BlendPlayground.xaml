@@ -1,0 +1,30 @@
+﻿<f:ThemedWindow x:Class="TheMvvmGuys.FindMyGames.BlendPlayground"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:f="urn:find-my-games"
+        mc:Ignorable="d"
+        Title="BlendPlayground" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Width="240" Height="20" SelectedIndex="0">
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+            <ComboBoxItem>Blah</ComboBoxItem>
+        </ComboBox>
+        <Slider VerticalAlignment="Top" HorizontalAlignment="Center" Width="250" Minimum="120" Maximum="450" x:Name="Slider" Grid.Row="1"/>
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{f:MathBinding Value, 'value * 5', ElementName=Slider}" Grid.Row="1"/>
+    </Grid>
+</f:ThemedWindow>

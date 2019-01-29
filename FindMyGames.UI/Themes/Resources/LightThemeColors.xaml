@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames"
+                    xmlns:po="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!-- Nobody uses light theme lol jk -->
+    <system:String x:Key="ThemeName">Light</system:String>
+    <!-- Window -->
+    <SolidColorBrush x:Key="WindowBackgroundBrush" po:Freeze="true" Color="#FDFDFD"/>
+    <SolidColorBrush x:Key="WindowForegroundBrush" po:Freeze="True" Color="Black"/>
+    <!-- Title bar -->
+    <SolidColorBrush x:Key="TitleBarUnfocusedBorderBrush" po:Freeze="True" Color="DarkGray"/>
+    <!-- => Title bar buttons -->
+    <SolidColorBrush x:Key="TitleBarButtonFocusedBackgroundBrush" po:Freeze="True" Color="LightGray"/>
+    <SolidColorBrush x:Key="TitleBarButtonClickedBackgroundBrush" po:Freeze="true" Color="DarkGray"/>
+    <SolidColorBrush x:Key="ContainerControlBackgroundBrush" po:Freeze="True" Color="Transparent"/>
+    <SolidColorBrush x:Key="ControlBorderBrush" po:Freeze="True" Color="Gray"/>
+    <SolidColorBrush x:Key="ControlBackgroundBrush" po:Freeze="True" Color="LightGray"/>
+    <SolidColorBrush x:Key="ControlFocusedBorderBrush" po:Freeze="True" Color="#7DC4FD"/>
+    <SolidColorBrush x:Key="ControlFocusedBackgroundBrush" po:Freeze="True" Color="#A2D6FF"/>
+    <SolidColorBrush x:Key="ControlKeyboardFocusedBackgroundBrush" po:Freeze="True" Color="#8FCEFF"/>
+    <SolidColorBrush x:Key="ControlClickedBackgroundBrush" po:Freeze="True" Color="#95D0FE"/>
+    <SolidColorBrush x:Key="ControlClickedBorderBrush" po:Freeze="True" Color="#59B5FF"/>
+    <SolidColorBrush x:Key="ControlDisabledBackgroundBrush" po:Freeze="True" Color="#C2C2C2"/>
+    <SolidColorBrush x:Key="ControlDisabledBorderBrush" po:Freeze="True" Color="LightGray"/>
+    <SolidColorBrush x:Key="ControlSelectedBackgroundBrush" po:Freeze="True" Color="#68BBFF"/>
+    <SolidColorBrush x:Key="ControlSelectedHoverBackgroundBrush" po:Freeze="True" Color="#65A5D6"/>
+    <SolidColorBrush x:Key="ControlKeyboardFocusedSelectedBackgroundBrush" po:Freeze="True" Color="#77BEF8"/>
+    <!-- Special controls colors -->
+    <SolidColorBrush x:Key="ComboBoxArrowFocusedBrush" po:Freeze="True" Color="#578ABE"/>
+    <SolidColorBrush x:Key="ComboBoxArrowClickedBrush" po:Freeze="True" Color="#2D7CBB"/>
+    <Color x:Key="ButtonShadowColor">#CBCBCB</Color>
+</ResourceDictionary>

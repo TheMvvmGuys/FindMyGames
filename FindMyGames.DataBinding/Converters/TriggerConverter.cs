@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows.Data;
+
 // https://stackoverflow.com/questions/335849/wpf-commandparameter-is-null-first-time-canexecute-is-called
 // thancc stacc overflow
-namespace TheMvvmGuys.FindMyGames.Converters
+namespace TheMvvmGuys.FindMyGames.DataBinding.Converters
 {
     public class TriggerConverter : IMultiValueConverter
     {

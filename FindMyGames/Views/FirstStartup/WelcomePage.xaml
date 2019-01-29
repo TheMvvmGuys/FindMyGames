@@ -3,20 +3,44 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:TheMvvmGuys.FindMyGames.Views.FirstStartup"
+      xmlns:xaml="clr-namespace:TheMvvmGuys.FindMyGames.Extensions.Xaml"
+      xmlns:f="urn:find-my-games"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WelcomePage">
-    <Grid Margin="0 33" VerticalAlignment="Center">
+    <Grid Margin="{StaticResource FirstStartupPageMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="3*" MinHeight="60"/>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" FontSize="38" FontWeight="Bold"
-                   HorizontalAlignment="Center" Margin="15">Welcome to FindMyGames!</TextBlock>
-        <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="22" Margin="25 5" TextWrapping="Wrap">
-            FindMyGames is an easy way to list all your games and launching them in one click. <LineBreak/>
-            Let's start by letting us know where are your games!
-        </TextBlock>
+        <TextBlock VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}"
+                   HorizontalAlignment="Center" Margin="5">Welcome to FindMyGames!</TextBlock>
+        <StackPanel Grid.Row="1">
+            <TextBlock  Margin="15 5" Style="{StaticResource SubtitleTextStyle}"
+                       TextTrimming="WordEllipsis">
+                FindMyGames is an easy way to list all your games and launching them in one click. <LineBreak />
+                We will be asking a bit of help from you, if you have any clues of the location of your games, we would be happy to know them!
+                It will make things faster!
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5"> 
+                <TextBlock Text="Choose your theme: " FontSize="18" FontWeight="Bold"/>
+                <ComboBox ItemsSource="{xaml:AppBinding ThemeColorsDictionary.Themes}"
+                          SelectedIndex="{xaml:AppBinding ThemeColorsDictionary.SelectedIndex, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="f:ThemeColorEntry">
+                            <TextBlock Text="{Binding Name, Mode=OneTime}" FontSize="15"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="2" FontSize="28" MaxWidth="600" Click="Button_Click" 
+                FontWeight="Bold" Margin="0 15"
+                MaxHeight="125">
+            <Viewbox StretchDirection="DownOnly">
+                <TextBlock Text="Let's get started!"/>
+            </Viewbox>
+        </Button>
     </Grid>
 </Page>

@@ -24,5 +24,11 @@ namespace TheMvvmGuys.FindMyGames.Views.FirstStartup
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var uri = new Uri("pack://application:,,,/FindMyGames;component/Views/FirstStartup/PathChooserPage.xaml", UriKind.Absolute);
+            NavigationService?.Navigate(uri);
+        }
     }
 }

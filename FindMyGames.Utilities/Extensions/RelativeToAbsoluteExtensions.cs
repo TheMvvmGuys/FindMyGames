@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TheMvvmGuys.FindMyGames.Extensions
+namespace TheMvvmGuys.FindMyGames.Utilities.Extensions
 {
-    internal static class RelativeToAbsoluteExtensions
+    public static class RelativeToAbsoluteExtensions
     {
         public static Uri[] MakeRelativeUris(this IEnumerable<string> partialUris)
         {

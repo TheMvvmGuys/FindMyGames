@@ -12,11 +12,11 @@ namespace TheMvvmGuys.FindMyGames.UI.Themes
         {
             get
             {
-                var defaultUri = new Uri("pack://application:,,,/FindMyGames;component/Themes/Resources/Empty.xaml", UriKind.Absolute);
+                var defaultUri = new Uri("pack://application:,,,/FindMyGames.UI;component/Themes/Resources/Empty.xaml", UriKind.Absolute);
 #if DEBUG
                 if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
 #else
-                if (false)
+                if (true)
 #endif
                 {
                     return defaultUri;

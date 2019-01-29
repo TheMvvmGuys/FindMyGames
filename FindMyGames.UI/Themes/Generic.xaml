@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
-    xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:interactions="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:f="urn:find-my-games">
     <Style TargetType="Button" x:Key="TitleBarButtonStyle">
         <Setter Property="FontFamily" Value="/FindMyGames;component/Fonts/#Segoe MDL2 Assets"/>
@@ -52,6 +52,8 @@
     <system:String x:Key="RestoreButtonCharacter">&#xe923;</system:String>
     <system:String x:Key="CloseButtonCharacter">&#xE8BB;</system:String>
     <Style TargetType="{x:Type controls:ThemedWindow}">
+        <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:ThemedWindow}">
@@ -65,13 +67,13 @@
                                 <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" From="1.1" To="1"  Duration="{StaticResource OpenDuration}"/>
                             </Storyboard>
                         </Grid.Resources>
-                        <Interactions:Interaction.Triggers>
-                            <Interactions:EventTrigger EventName="Loaded">
-                                <Interactions:ControlStoryboardAction ControlStoryboardOption="Play" 
+                        <interactions:Interaction.Triggers>
+                            <interactions:EventTrigger EventName="Loaded">
+                                <interactions:ControlStoryboardAction ControlStoryboardOption="Play" 
                                                                       Storyboard="{StaticResource ThemedWindowOpenStoryboard}" IsEnabled="True"
                                                                       />
-                            </Interactions:EventTrigger>
-                        </Interactions:Interaction.Triggers>
+                            </interactions:EventTrigger>
+                        </interactions:Interaction.Triggers>
                         <AdornerDecorator x:Name="Adorner">
                             <Grid Background="{TemplateBinding Background}">
                                 <Grid.RowDefinitions>
@@ -136,8 +138,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource WindowBackgroundBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="{DynamicResource ControlBorderBrush}"/>
         <Setter Property="RenderTransform">

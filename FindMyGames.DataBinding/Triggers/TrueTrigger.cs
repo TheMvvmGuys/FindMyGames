@@ -9,6 +9,7 @@ namespace TheMvvmGuys.FindMyGames.DataBinding.Triggers
         public TrueTrigger()
         {
             Binding = true;
+            Value = true;
         }
     }
 }

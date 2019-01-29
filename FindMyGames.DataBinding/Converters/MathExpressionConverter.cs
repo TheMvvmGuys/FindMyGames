@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq.Dynamic.Core;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using System.Windows.Data;
 namespace TheMvvmGuys.FindMyGames.DataBinding.Converters
 {

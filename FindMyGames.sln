@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyGames.UI", "FindMyGam
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMyGames.Utilities", "FindMyGames.Utilities\FindMyGames.Utilities.csproj", "{895421C7-C20E-4B9D-9A27-2D5B2CA3D63B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{33F790F1-3DF8-4DDB-9010-BF3AF5E6B128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMyGames.DataBinding.Tests", "FindMyGames.DataBinding.Tests\FindMyGames.DataBinding.Tests.csproj", "{0A921240-B38B-465C-A861-D6DEC5BB7F13}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{895421C7-C20E-4B9D-9A27-2D5B2CA3D63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{895421C7-C20E-4B9D-9A27-2D5B2CA3D63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{895421C7-C20E-4B9D-9A27-2D5B2CA3D63B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A921240-B38B-465C-A861-D6DEC5BB7F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A921240-B38B-465C-A861-D6DEC5BB7F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A921240-B38B-465C-A861-D6DEC5BB7F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A921240-B38B-465C-A861-D6DEC5BB7F13}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{7D4FF12A-9BE9-4264-ACF3-39D4A3F34D9C} = {EDDCB4A1-F990-4611-86A0-B93357C2E21B}
 		{D5304624-D060-4000-8E6B-E144FE35DD91} = {B460F803-DAC2-47A8-830C-391A9E396DD2}
 		{ACD68E83-33FE-4CD2-98AD-80BB691AC103} = {B460F803-DAC2-47A8-830C-391A9E396DD2}
+		{0A921240-B38B-465C-A861-D6DEC5BB7F13} = {33F790F1-3DF8-4DDB-9010-BF3AF5E6B128}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD75B0DA-52B0-41DB-ADFC-AC3008E590CA}

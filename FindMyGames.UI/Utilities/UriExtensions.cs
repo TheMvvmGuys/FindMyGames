@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace TheMvvmGuys.FindMyGames.Utilities.Extensions
+namespace TheMvvmGuys.FindMyGames.Utilities
 {
     public static class UriExtensions
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace TheMvvmGuys.FindMyGames.Utilities.Extensions
+namespace TheMvvmGuys.FindMyGames.Utilities
 {
     public static class RelativeToAbsoluteExtensions
     {

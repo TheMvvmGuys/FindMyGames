@@ -74,6 +74,8 @@
     <Compile Include="Themes\ThemeColorEntry.cs" />
     <Compile Include="Themes\ThemeColorEntryCollection.cs" />
     <Compile Include="Themes\ThemeColorResourceDictionary.cs" />
+    <Compile Include="Utilities\RelativeToAbsoluteExtensions.cs" />
+    <Compile Include="Utilities\UriExtensions.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -110,10 +112,6 @@
     <ProjectReference Include="..\FindMyGames.DataBinding\FindMyGames.DataBinding.csproj">
       <Project>{4a99cabb-bf09-4dc1-84f0-1f05e5ea813b}</Project>
       <Name>FindMyGames.DataBinding</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FindMyGames.Utilities\FindMyGames.Utilities.csproj">
-      <Project>{895421c7-c20e-4b9d-9a27-2d5b2ca3d63b}</Project>
-      <Name>FindMyGames.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

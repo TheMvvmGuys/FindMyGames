@@ -56,6 +56,9 @@
   <ItemGroup>
     <Compile Include="ButtonAnimation.cs" />
     <Compile Include="Commands\NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="Controls\SquareLoading.xaml.cs">
+      <DependentUpon>SquareLoading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ThemedWindow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -87,6 +90,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\SquareLoading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

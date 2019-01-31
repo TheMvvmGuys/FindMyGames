@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:ui="clr-namespace:TheMvvmGuys.FindMyGames.UI"
-                    xmlns:f="urn:find-my-games">
+                    xmlns:f="urn:find-my-games"
+                    xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls">
     <Style TargetType="{x:Type TextBlock}" x:Key="ForegroundColorControlStyle">
         <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
     </Style>
@@ -26,6 +27,10 @@
     <Style TargetType="{x:Type TextBlock}" x:Key="SubtitleTextStyle" BasedOn="{StaticResource HeaderTextStyle}">
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style TargetType="{x:Type controls:SquareLoading}">
+        <Setter Property="SquareBackground" Value="{DynamicResource ControlBorderBrush}"/>
+        <Setter Property="SquareBorderBrush" Value="{DynamicResource ControlBackgroundBrush}"/>
     </Style>
     <!-- Templates & stuff -->
     <ControlTemplate x:Key="ColoredButtonTemplate" TargetType="{x:Type Button}">

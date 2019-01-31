@@ -3,7 +3,11 @@
                     xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                     xmlns:ui="clr-namespace:TheMvvmGuys.FindMyGames.UI"
                     xmlns:f="urn:find-my-games"
-                    xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls">
+                    xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
+                    xmlns:themes="clr-namespace:TheMvvmGuys.FindMyGames.UI.Themes">
+    <ResourceDictionary.MergedDictionaries>
+        <themes:IntellisenseProviderResourceDictionary Source="DarkThemeColors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
     <Style TargetType="{x:Type TextBlock}" x:Key="ForegroundColorControlStyle">
         <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
     </Style>
@@ -29,8 +33,8 @@
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
     <Style TargetType="{x:Type controls:SquareLoading}">
-        <Setter Property="SquareBackground" Value="{DynamicResource ControlBorderBrush}"/>
-        <Setter Property="SquareBorderBrush" Value="{DynamicResource ControlBackgroundBrush}"/>
+        <Setter Property="SquareBackground" Value="{DynamicResource SquareLoadingBackgroundBrush}"/>
+        <Setter Property="SquareBorderBrush" Value="{DynamicResource SquareLoadingBorderBrush}"/>
     </Style>
     <!-- Templates & stuff -->
     <ControlTemplate x:Key="ColoredButtonTemplate" TargetType="{x:Type Button}">

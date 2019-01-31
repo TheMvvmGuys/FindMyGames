@@ -10,26 +10,27 @@
         <RotateTransform CenterX="0" CenterY="0"/>
     </UserControl.RenderTransform>
     <UserControl.Resources>
-        <Storyboard x:Key="LoadingAnimation" RepeatBehavior="Forever" Duration="0:0:1">
+        <CircleEase x:Key="InOut" EasingMode="EaseInOut"/>
+        <Storyboard x:Key="LoadingAnimation" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="TopLeftRectangle"
-                                           SpeedRatio="2">
+                                           SpeedRatio="1" >
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="55"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="55" EasingFunction="{StaticResource InOut}"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="TopRightRectangle"
-                                           SpeedRatio="2">
-                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="55"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0"/>
+                                           SpeedRatio="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="55" EasingFunction="{StaticResource InOut}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" EasingFunction="{StaticResource InOut}"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="BottomLeftRectangle"
-                                           SpeedRatio="2">
+                                           SpeedRatio="1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="55"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="55" EasingFunction="{StaticResource InOut}"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Canvas.Top)" Storyboard.TargetName="BottomLeftRectangle"
-                                           SpeedRatio="2">
-                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="55"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+                                           SpeedRatio="1">
+                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="55" EasingFunction="{StaticResource InOut}"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0" EasingFunction="{StaticResource InOut}"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard TargetName="Control" TargetProperty="RenderTransform.(RotateTransform.Angle)"

@@ -29,5 +29,7 @@
     <!-- Special controls colors -->
     <SolidColorBrush x:Key="ComboBoxArrowFocusedBrush" po:Freeze="True" Color="#578ABE"/>
     <SolidColorBrush x:Key="ComboBoxArrowClickedBrush" po:Freeze="True" Color="#2D7CBB"/>
+    <SolidColorBrush x:Key="SquareLoadingBackgroundBrush" po:Freeze="True" Color="#58A5E3"/>
+    <SolidColorBrush x:Key="SquareLoadingBorderBrush" po:Freeze="True" Color="#0086F0"/>
     <Color x:Key="ButtonShadowColor">#CBCBCB</Color>
 </ResourceDictionary>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,11 +41,12 @@ namespace TheMvvmGuys.GameScanner
         private static ScannedGame ScanGameDirectory(DirectoryInfo info, GameFolder launcherFolder)
         {
             IEnumerable<FileInfo> executables = info.EnumerateFiles("*.exe", SearchOption.AllDirectories);
-            if (!executables.Any())
+            var infos = executables as FileInfo[] ?? executables.ToArray();
+            if (!infos.Any())
             {
                 return null;
             }
-            string executablePath = GetGameExecutable(executables).FullName;
+            string executablePath = GetGameExecutable(infos).FullName;
 
             return new ScannedGame(
                 info.Name,
@@ -59,9 +61,8 @@ namespace TheMvvmGuys.GameScanner
             List<FileInfo> orderedEnumerable = orderByDescending.ToList();
             foreach (FileInfo fileInfo in orderedEnumerable)
             {
-                bool isDriverInstaller = ForbiddenExecutables
-                   .Any(driver => fileInfo.Name.ToLower()
-                       .Contains(driver.ToLower()));
+                // contains but case insensitive
+                bool isDriverInstaller = ForbiddenExecutables.Any(driver => fileInfo.Name.IndexOf(driver, StringComparison.OrdinalIgnoreCase) > 0); 
 
                 if (!isDriverInstaller)
                 {

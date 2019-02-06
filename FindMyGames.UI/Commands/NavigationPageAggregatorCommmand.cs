@@ -4,8 +4,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
-using TheMvvmGuys.FindMyGames.Utilities.Extensions;
-
+using TheMvvmGuys.FindMyGames.Utilities;
 namespace TheMvvmGuys.FindMyGames.UI.Commands
 {
     public class NavigationPageAggregatorCommand : ICommand

@@ -24,7 +24,7 @@ namespace TheMvvmGuys.GameScanner.Tests
 
             var gameScanner = new GameScanner();
 
-            Dictionary<GameFolder, IEnumerable<ScannedGame>> a = await gameScanner.ScanLauncherFoldersAsync(actualFolders);
+            var a = await gameScanner.ScanLauncherFoldersAsync(actualFolders);
             
             Assert.IsTrue(a.Any());
         }

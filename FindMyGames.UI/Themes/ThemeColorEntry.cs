@@ -4,7 +4,7 @@ namespace TheMvvmGuys.FindMyGames.UI.Themes
 {
     public class ThemeColorEntry
     {
-        public string Name { get; set; }
+        public Theme Theme { get; set; }
         public Uri Uri { get; set; }
     }
 }

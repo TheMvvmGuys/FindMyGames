@@ -40,7 +40,7 @@
     <ControlTemplate x:Key="ColoredButtonTemplate" TargetType="{x:Type Button}">
         <Grid x:Name="Grid">
             <Grid.Resources>
-                <Storyboard FillBehavior="HoldEnd" x:Key="HoveredStoryboard" Duration="0">
+                <Storyboard FillBehavior="HoldEnd" x:Key="HoveredStoryboard" Duration="0" >
                     <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" Storyboard.TargetName="container" 
                                      To="{Binding (ui:ButtonAnimation.ScaleUp), RelativeSource={RelativeSource TemplatedParent}}"/>
                     <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" Storyboard.TargetName="container" 
@@ -350,5 +350,4 @@
         <Setter Property="Template" Value="{StaticResource ColoredComboBoxItemTemplate}"/>
     </Style>
     <Thickness Bottom="15" Top="15" Left="25" Right="25" x:Key="FirstStartupPageMargin"/>
-
 </ResourceDictionary>

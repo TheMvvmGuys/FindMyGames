@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheMvvmGuys.FindMyGames.ViewModels;
 
 namespace TheMvvmGuys.FindMyGames.Views.FirstStartup
 {
     /// <summary>
-    /// Logique d'interaction pour WelcomePage.xaml
+    /// Welcome page
     /// </summary>
     public partial class WelcomePage : Page
     {
-        public WelcomePage()
+        public WelcomePage(WelcomePageViewModel vm)
         {
             InitializeComponent();
+            DataContext = vm;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

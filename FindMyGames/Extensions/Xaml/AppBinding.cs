@@ -11,7 +11,7 @@ namespace TheMvvmGuys.FindMyGames.Extensions.Xaml
 
         public AppBinding(string path) : base(path)
         {
-            Source = App.CurrentAsApp;
+            Source = App.CurrentAsApp; 
         }
     }
 }

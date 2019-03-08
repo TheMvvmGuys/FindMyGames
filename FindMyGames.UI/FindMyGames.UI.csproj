@@ -38,6 +38,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.0.1\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -56,10 +59,18 @@
   <ItemGroup>
     <Compile Include="ButtonAnimation.cs" />
     <Compile Include="Commands\NavigationPageAggregatorCommmand.cs" />
+    <Compile Include="Controls\WindowModalOverlay.cs" />
     <Compile Include="Controls\SquareLoading.xaml.cs">
       <DependentUpon>SquareLoading.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ThemedWindow.cs" />
+    <Compile Include="Interactivity\IInteractionBase.cs" />
+    <Compile Include="Interactivity\IInteractionContainer.cs" />
+    <Compile Include="Interactivity\Modals\IModalInteraction.cs" />
+    <Compile Include="Interactivity\Modals\LoadingModal.cs" />
+    <Compile Include="Interactivity\Modals\ModalDisplay.cs" />
+    <Compile Include="Interactivity\Utilities.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -74,15 +85,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Themes\IntellisenseProviderResourceDictionary.cs" />
+    <Compile Include="Themes\IThemeCollection.cs" />
+    <Compile Include="Themes\Theme.cs" />
     <Compile Include="Themes\ThemeColorEntry.cs" />
     <Compile Include="Themes\ThemeColorEntryCollection.cs" />
     <Compile Include="Themes\ThemeColorResourceDictionary.cs" />
+    <Compile Include="Utilities\NameProvider.cs" />
     <Compile Include="Utilities\RelativeToAbsoluteExtensions.cs" />
     <Compile Include="Utilities\UriExtensions.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\SegMDL2.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

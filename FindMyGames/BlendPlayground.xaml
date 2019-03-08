@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:f="urn:find-my-games"
+        xmlns:modals="clr-namespace:TheMvvmGuys.FindMyGames.UI.Interactivity.Modals;assembly=FindMyGames.UI"
         mc:Ignorable="d"          
         Title="BlendPlayground" Height="450" Width="800">
     <Grid>
@@ -26,6 +27,5 @@
         </ComboBox>
         <Slider VerticalAlignment="Top" HorizontalAlignment="Center" Width="250" Minimum="120" Maximum="450" x:Name="Slider" Grid.Row="1"/>
         <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="{f:MathBinding Value, 'value * 5', ElementName=Slider}" Grid.Row="1"/>
-        <f:SquareLoading HorizontalAlignment="Right"></f:SquareLoading>
     </Grid>
 </f:ThemedWindow>

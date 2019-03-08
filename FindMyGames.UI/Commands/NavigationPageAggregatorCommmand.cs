@@ -10,28 +10,22 @@ namespace TheMvvmGuys.FindMyGames.UI.Commands
     public class NavigationPageAggregatorCommand : ICommand
     {
         private bool _subbed;
-        public NavigationPageAggregatorCommand(IEnumerable<Uri> uris)
+        public NavigationPageAggregatorCommand(IEnumerable<Page> pages)
         {
-            Uris = uris;
+            Pages = pages as IList<Page> ?? pages.ToList();
         }
 
         public NavigationPageAggregatorCommand()
         {
-            
-        }
-        public IEnumerable<Uri> Uris { get; set; }
 
-        public IEnumerable<string> RelativeUris
-        {
-            get => Uris?.Select(u => u.ToString()) ?? Enumerable.Empty<string>();
-            set { Uris = value.MakeRelativeUris(); CanExecuteChanged?.Invoke(this, EventArgs.Empty); }
         }
+        public IList<Page> Pages { get; set; }
 
         public bool CanExecute(object parameter)
         {
             if (!(parameter is Frame f)) return false;
             SubscribeIfNotDoneAlready(f);
-            return f.CanGoForward || f.CurrentSource.GetLastElement() != Uris.LastOrDefault()?.GetLastElement();
+            return f.CanGoForward || !Equals(f.Content, Pages.LastOrDefault());
         }
         public void Execute(object parameter)
         {
@@ -42,28 +36,10 @@ namespace TheMvvmGuys.FindMyGames.UI.Commands
                 f.GoForward();
                 return;
             }
-
-            var uriContext = (IUriContext) f;
-            if (Uris is IList<Uri> list) // Use the IndexOf if available because performance
-            {
-                var firstElement = list.First(x => f.CurrentSource.GetLastElement() == x.GetLastElement());
-                var indexOf = list.IndexOf(firstElement);
-                var secondElement = list[indexOf + 1];
-                if (!secondElement.IsAbsoluteUri)
-                {
-                    Uri.TryCreate(uriContext.BaseUri, secondElement, out secondElement);
-                }
-                f.Navigate(secondElement); // Next element
-                CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-                return; // Alright :)
-            }
-            var uri = Uris.SkipWhile(x => f.CurrentSource.GetLastElement() != x.GetLastElement())
-                .ElementAt(1);
-            if (!uri.IsAbsoluteUri)
-            {
-                Uri.TryCreate(uriContext.BaseUri, uri, out uri);
-            }
-            f.Navigate(uri); // Go next.
+            var currentPage = Pages.FirstOrDefault(x => Equals(f.Content, x));
+            var indexOf = Pages.IndexOf(currentPage);
+            var secondElement = Pages[indexOf + 1];
+            f.Navigate(secondElement); // Next element
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 

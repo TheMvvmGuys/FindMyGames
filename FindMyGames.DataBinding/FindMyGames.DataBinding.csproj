@@ -58,9 +58,11 @@
   <ItemGroup>
     <Compile Include="Converters\InvalidMathExpressionException.cs" />
     <Compile Include="Converters\MathExpressionConverter.cs" />
+    <Compile Include="Converters\NullToUnsetValueConverter.cs" />
     <Compile Include="Converters\TriggerConverter.cs" />
     <Compile Include="Markup\FindAncestor.cs" />
     <Compile Include="Markup\MathBinding.cs" />
+    <Compile Include="Markup\WindowBinding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

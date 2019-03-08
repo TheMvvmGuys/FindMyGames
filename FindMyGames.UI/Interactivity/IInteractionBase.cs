@@ -1,4 +1,4 @@
-﻿namespace TheMvvmGuys.FindMyGames.Interactivity
+﻿namespace TheMvvmGuys.FindMyGames.UI.Interactivity
 {
     public interface IInteractionBase
     {

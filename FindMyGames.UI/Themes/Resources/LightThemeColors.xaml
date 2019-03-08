@@ -31,5 +31,9 @@
     <SolidColorBrush x:Key="ComboBoxArrowClickedBrush" po:Freeze="True" Color="#2D7CBB"/>
     <SolidColorBrush x:Key="SquareLoadingBackgroundBrush" po:Freeze="True" Color="#58A5E3"/>
     <SolidColorBrush x:Key="SquareLoadingBorderBrush" po:Freeze="True" Color="#0086F0"/>
+
+    <SolidColorBrush x:Key="ModalBackgroundBrush" po:Freeze="True" Color="White"/>
+    <SolidColorBrush x:Key="ModalBorderBrush" po:Freeze="True" Color="#A6A6A6"/>
+    <SolidColorBrush x:Key="ModalOverlayBackgroundBrush" po:Freeze="True" Color="#1A000000"/>
     <Color x:Key="ButtonShadowColor">#CBCBCB</Color>
 </ResourceDictionary>

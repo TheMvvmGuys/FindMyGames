@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using TheMvvmGuys.FindMyGames.UI.Controls;
+using TheMvvmGuys.FindMyGames.ViewModels;
 
 namespace TheMvvmGuys.FindMyGames.Views
 {
@@ -8,9 +9,11 @@ namespace TheMvvmGuys.FindMyGames.Views
     /// </summary>
     public partial class MainWindow : ThemedWindow
     {
-        public MainWindow()
+        private MainWindowViewModel _vm;
+        public MainWindow(MainWindowViewModel vm = null)
         {
             InitializeComponent();
+            DataContext = _vm ?? new MainWindowViewModel();
         }
     }
 }

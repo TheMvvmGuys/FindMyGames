@@ -4,9 +4,10 @@
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     xmlns:controls="clr-namespace:TheMvvmGuys.FindMyGames.UI.Controls"
     xmlns:interactions="http://schemas.microsoft.com/xaml/behaviors"
-    xmlns:f="urn:find-my-games">
+    xmlns:f="urn:find-my-games"
+    xmlns:modals="clr-namespace:TheMvvmGuys.FindMyGames.UI.Interactivity.Modals">
     <Style TargetType="Button" x:Key="TitleBarButtonStyle">
-        <Setter Property="FontFamily" Value="/FindMyGames;component/Fonts/#Segoe MDL2 Assets"/>
+        <Setter Property="FontFamily" Value="/FindMyGames.UI;component/Fonts/#Segoe MDL2 Assets"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource WindowForegroundBrush}"/>
@@ -58,22 +59,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:ThemedWindow}">
                     <Grid x:Name="Grid">
-                        <Grid.Resources>
-                            <Duration x:Key="OpenDuration">0:0:0.2</Duration>
-                            <Storyboard x:Key="ThemedWindowOpenStoryboard" Target="{Binding RelativeSource={f:FindAncestor controls:ThemedWindow}}">
-                                <ColorAnimation  Storyboard.TargetProperty="Background.(SolidColorBrush.Color)" From="Transparent" To="{DynamicResource WindowBackgroundColor}" Duration="{StaticResource OpenDuration}"/>
-                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="{StaticResource OpenDuration}"/>
-                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleX)" From="1.1" To="1"  Duration="{StaticResource OpenDuration}"/>
-                                <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(ScaleTransform.ScaleY)" From="1.1" To="1"  Duration="{StaticResource OpenDuration}"/>
-                            </Storyboard>
-                        </Grid.Resources>
-                        <interactions:Interaction.Triggers>
-                            <interactions:EventTrigger EventName="Loaded">
-                                <interactions:ControlStoryboardAction ControlStoryboardOption="Play" 
-                                                                      Storyboard="{StaticResource ThemedWindowOpenStoryboard}" IsEnabled="True"
-                                                                      />
-                            </interactions:EventTrigger>
-                        </interactions:Interaction.Triggers>
                         <AdornerDecorator x:Name="Adorner">
                             <Grid Background="{TemplateBinding Background}">
                                 <Grid.RowDefinitions>
@@ -84,11 +69,11 @@
                                     <ColumnDefinition />
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid x:Name="PART_MoveArea" Background="Transparent">
+                                <Grid x:Name="PART_MoveArea" Background="Transparent" Panel.ZIndex="3">
                                     <TextBlock Text="{TemplateBinding Title}" x:Name="TitleText" FontSize="14" TextTrimming="CharacterEllipsis"
                                                HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 2"/>
                                 </Grid>
-                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" x:Name="TitleBarButtons">
+                                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" x:Name="TitleBarButtons" Panel.ZIndex="3">
                                     <StackPanel.Resources>
                                         <Style TargetType="Button" BasedOn="{StaticResource TitleBarButtonStyle}"/>
                                     </StackPanel.Resources>
@@ -99,6 +84,8 @@
                                     <Button x:Name="PART_CloseButton"
                                             Content="{StaticResource CloseButtonCharacter}" />
                                 </StackPanel>
+                                <controls:WindowModalOverlay x:Name="PART_WindowModal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                                                             Panel.ZIndex="1"/>
                                 <ContentPresenter Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2"/>
                             </Grid>
                         </AdornerDecorator>
@@ -146,5 +133,43 @@
             </Setter.Value>
         </Setter>
         <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
+    </Style>
+    <f:NullToUnsetValueConverter x:Key="UnsetConverter"/>
+    <Style TargetType="{x:Type controls:WindowModalOverlay}">
+        <Setter Property="Background" Value="{DynamicResource ModalOverlayBackgroundBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:WindowModalOverlay}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid Margin="50" SnapsToDevicePixels="True" UseLayoutRounding="True">
+                            <Border Background="{DynamicResource ModalBackgroundBrush}" BorderThickness="1" BorderBrush="{DynamicResource ModalBorderBrush}"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Border.Effect>
+                                    <DropShadowEffect Color="{DynamicResource ButtonShadowColor}" Direction="90" BlurRadius="15" Opacity="0.85" RenderingBias="Quality" ShadowDepth="0"/>
+                                </Border.Effect>
+                                <ContentControl Margin="35 20">
+                                    <ContentControl.Content>
+                                        <PriorityBinding>
+                                            <Binding Path="ModalDisplay" RelativeSource="{f:FindAncestor controls:WindowModalOverlay}" Converter="{StaticResource UnsetConverter}" Mode="TwoWay"/>
+                                            <Binding Path="Content" RelativeSource="{f:FindAncestor controls:WindowModalOverlay}"/>
+                                        </PriorityBinding>
+                                    </ContentControl.Content>
+                                    <ContentControl.Resources>
+                                        <DataTemplate DataType="{x:Type modals:LoadingModal}">
+                                            <WrapPanel>
+                                                <controls:SquareLoading Width="115"/>
+                                                <TextBlock VerticalAlignment="Center" Margin="35 0" FontSize="22" Text="{Binding Text}" TextWrapping="Wrap"/>
+                                            </WrapPanel>
+                                        </DataTemplate>
+                                    </ContentControl.Resources>
+                                </ContentControl>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 </ResourceDictionary>

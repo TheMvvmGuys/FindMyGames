@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:xaml="clr-namespace:TheMvvmGuys.FindMyGames.Extensions.Xaml"
       xmlns:f="urn:find-my-games"
+      xmlns:viewModels="clr-namespace:TheMvvmGuys.FindMyGames.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="WelcomePage">
+      Title="WelcomePage" d:DataContext="{d:DesignInstance viewModels:WelcomePageViewModel}">
     <Grid Margin="{StaticResource FirstStartupPageMargin}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="3*" MinHeight="60"/>
         </Grid.RowDefinitions>
-        <TextBlock VerticalAlignment="Center" Style="{StaticResource HeaderTextStyle}"
-                   HorizontalAlignment="Center" Margin="5">Welcome to FindMyGames!</TextBlock>
+        <TextBlock Style="{StaticResource HeaderTextStyle}">Welcome to FindMyGames!</TextBlock>
         <StackPanel Grid.Row="1">
             <TextBlock  Margin="15 5" Style="{StaticResource SubtitleTextStyle}"
                        TextTrimming="WordEllipsis">
@@ -25,11 +25,11 @@
             </TextBlock>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5"> 
                 <TextBlock Text="Choose your theme: " FontSize="18" FontWeight="Bold"/>
-                <ComboBox ItemsSource="{xaml:AppBinding ThemeColorsDictionary.Themes}"
-                          SelectedIndex="{xaml:AppBinding ThemeColorsDictionary.SelectedIndex, Mode=TwoWay}">
+                <ComboBox ItemsSource="{Binding Settings.Themes}"
+                          SelectedItem="{Binding Settings.Theme, Mode=TwoWay}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate DataType="f:ThemeColorEntry">
-                            <TextBlock Text="{Binding Name, Mode=OneTime}" FontSize="15"/>
+                            <TextBlock Text="{Binding}" FontSize="15"/>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>

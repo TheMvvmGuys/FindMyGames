@@ -13,10 +13,8 @@
                 <f:IntellisenseProviderResourceDictionary Source="/FindMyGames.UI;component/Themes/Resources/DarkThemeColors.xaml"/>
                 <f:ThemeColorResourceDictionary>
                     <f:ThemeColorResourceDictionary.Themes>
-                        <f:ThemeColorEntryCollection>
-                            <f:ThemeColorEntry Name="Dark" Uri="/FindMyGames.UI;component/Themes/Resources/DarkThemeColors.xaml"/>
-                            <f:ThemeColorEntry Name="Light" Uri="/FindMyGames.UI;component/Themes/Resources/LightThemeColors.xaml"/>
-                        </f:ThemeColorEntryCollection>
+                        <f:ThemeColorEntry Theme="Dark" Uri="/FindMyGames.UI;component/Themes/Resources/DarkThemeColors.xaml"/>
+                        <f:ThemeColorEntry Theme="Light" Uri="/FindMyGames.UI;component/Themes/Resources/LightThemeColors.xaml"/>
                     </f:ThemeColorResourceDictionary.Themes>
                 </f:ThemeColorResourceDictionary>
                 <ResourceDictionary Source="/FindMyGames.UI;component/Themes/Resources/BaseSkinStyles.xaml"/>

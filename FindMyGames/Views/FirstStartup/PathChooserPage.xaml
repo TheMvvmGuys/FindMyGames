@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Let's make things a little bit faster..." Style="{StaticResource HeaderTextStyle}" Margin="15"/>
+        <TextBlock Text="Let's make things a little bit faster..." Style="{StaticResource HeaderTextStyle}"/>
         <TextBlock Grid.Row="1" Margin="60 5" Style="{StaticResource SubtitleTextStyle}">
             If you know some, you can put folders with games inside, to help us find them.
         </TextBlock>

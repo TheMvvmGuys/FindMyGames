@@ -9,27 +9,19 @@
         mc:Ignorable="d" x:Name="Window" ResizeMode="CanResize"
         Title="FirstStartupWindow" Height="450" Width="800">
     <Window.Resources>
-        <x:Array x:Key="PageUris" Type="system:Uri">
-            <system:Uri>WelcomePage.xaml</system:Uri>
-            <system:Uri>PathChooserPage.xaml</system:Uri>
-        </x:Array>
-        <f:NavigationPageAggregatorCommand x:Key="AggregatorCommand" Uris="{StaticResource PageUris}"/>
         <f:TriggerConverter x:Key="TriggerConverter"/>
         <ControlTemplate x:Key="FrameControlTemplate" TargetType="{x:Type Frame}">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
                 <DockPanel>
-                    <Grid DockPanel.Dock="Bottom" Height="36" >
+                    <Grid DockPanel.Dock="Bottom" Height="38" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <DockPanel Margin="5 1">
-                            <DockPanel DockPanel.Dock="Top">
-                                <TextBlock Text="Searching inside folder: C:/SuspicousGames/OwOWhatsThis/Game" DockPanel.Dock="Left" TextTrimming="CharacterEllipsis" />
-                                <TextBlock Text="1 game found!" HorizontalAlignment="Right" FontWeight="Bold"/>
-                            </DockPanel>
-                            <ProgressBar Value="10" Margin="0 5"/>
-                        </DockPanel>
+                        <WrapPanel>
+                            <f:SquareLoading Margin="6 0 6 2"/>
+                            <TextBlock Text="Finding some games... (already 0 found)" VerticalAlignment="Center" FontSize="16"/>
+                        </WrapPanel>
                         <Menu x:Name="NavMenu" Visibility="Collapsed"/>
                         <!-- Menu to make the control not cry (crash) -->
                         <StackPanel HorizontalAlignment="Right" Margin="5 0" Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="1">
@@ -38,7 +30,7 @@
                                     CommandParameter="{Binding Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}">
                                 <Button.Command>
                                     <MultiBinding Converter="{StaticResource TriggerConverter}">
-                                        <Binding Source="{StaticResource AggregatorCommand}"/>
+                                        <Binding ElementName="Window" Path="NextPageCommand"/>
                                         <Binding/>
                                     </MultiBinding>
                                 </Button.Command>
@@ -59,5 +51,5 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
     </Window.Resources>
-    <Frame Source="{Binding [0], Source={StaticResource PageUris}}" Template="{DynamicResource FrameControlTemplate}" x:Name="Frame" FocusVisualStyle="{x:Null}"/>
+    <Frame Content="{Binding NextPageCommand.Pages[0], ElementName=Window}" Template="{DynamicResource FrameControlTemplate}" x:Name="Frame" FocusVisualStyle="{x:Null}"/>
 </f:ThemedWindow>

@@ -9,3 +9,11 @@ A next-gen game launcher!
 
 ## Release
 We are far from a working release yet, however we are trying to speed the production procedure as much as we can.
+
+## Updates
+
+### Oct. 2019
+Hey there all. We, at TheMvvmGuys, are busy with our own side-projects.
+We deeply thank our followers, and hope to complete this project in the future!
+
+- TheMulti0
